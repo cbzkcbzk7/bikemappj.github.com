@@ -1,0 +1,431 @@
+
+
+/*==============================registerForm&registEditForm==============================*/
+	.registerMainDiv{
+	    width: 900px;
+	    position: relative;
+	    margin: 0 auto;
+	    z-index: 50;
+	}
+	body{
+		font-family:'Noto Sans KR', sans-serif;
+		background-color:#f3f3f3;
+	}
+	textarea:focus {
+		outline: none;
+	}
+	button:focus {
+		outline: none;
+	}
+	input:focus {
+		outline: none;
+	}
+	#email1:disabled, #email2:disabled{
+		background:#ddddec;
+		color:#464698;
+	}
+	#emailReset{
+		background:#484848;
+		color:white;
+		width:70px;
+	}
+	#emailChk{
+		font-size:15px;
+		font-weight: 400;
+    	text-decoration: none;
+    	text-align: center;
+    	margin-left: 8px;
+    	background-image: url(../img/img_register/email_check.png);
+	}
+	#domainSelect{
+		font-size:14px;
+		height:30px;
+	}
+	#registerForm>ul>li{
+		width : 100%;
+		float:left;
+	}
+	
+	#registerForm>ul>li:nth-of-type(2){
+		width : 20%;
+		margin-left : 154px;
+	}
+	#registerForm>ul>li:nth-of-type(3){
+		width : 60%;
+	}
+	
+	.registerWriteForm{
+						float:left;
+						width:20%;
+						margin-left:160px;
+	}
+	.registerTitle{
+		    padding-left: 150px;
+		    padding-top: 50px;
+	}
+	.registerFormTitle{
+					height:80px;
+					margin:65px 0 -10px 150px;
+	}
+	.registerTitleLbl{
+						font-size:36px; 
+	 					color:rgb(64,64,64);
+						font-weight:400;
+						font-family: 'Noto Sans KR', sans-serif;
+	}
+	.registerFormLblDiv{
+						text-align:center;	
+	
+	}
+	.registerFormLblDiv li{
+							margin:30px 0 50px 0;
+							text-align : left;
+							font-size : 20px;
+							font-weight: bold;
+							color:rgb(64,64,64);
+							height: 30px;
+							line-height: 30px;
+						
+	}
+	.registerFormLblDiv2 li{
+							margin:30px 0 60px 0;
+							text-align : left;
+							font-size : 20px;
+							font-weight: bold;
+							color:rgb(64,64,64);
+							height: 30px;
+							line-height: 30px;
+						
+	}
+	
+	.registerFormLbl > li{
+	    margin-bottom: 60px;
+	    font-size: 22px;
+	}
+	
+	.input_ul{
+		width:590px;
+		height:540px;
+		padding-left:25px;
+	}
+	
+	#input{
+			float:left;
+			width:60%;
+	}
+	#input input{
+		font-size:18px;
+		letter-spacing:1px;
+	}
+	
+	#input>ul>li:nth-of-type(2n+1){
+		margin:30px 0 0 0;
+		height : 40px;
+	}
+	#input>ul>li:nth-of-type(2n+2){
+		margin : 8px 0 41px 0;
+		height : 0;
+		
+	}
+	#input input,#domainSelect{
+				border-radius: 10px;
+				border:none;
+				box-shadow: 2px 2px 5px #9c9b9b;	
+				height:48px;
+				padding:0 11px;
+				font-family:'Noto Sans KR', sans-serif;
+	}
+	#domainSelect{
+		font-size:16px;
+	}
+	#input input[type=radio]{
+		    margin: 0;
+		    width: 18px;
+		    height: 26px;
+		    box-shadow: none;
+		    margin-right: 7px;
+		    font-weight: 400;
+		    font-family: 'Noto Sans KR', sans-serif;
+	}
+	#registerBtn{
+		text-align: center;
+		margin-top:15px;	
+	}
+	
+	#buttons2{
+		text-align: center;
+		margin-top:15px;
+	}
+	#buttons2>input, #registerBtn>input{
+		margin: 10px;
+	    font-family: 'Noto Sans KR', sans-serif;
+	}
+	.gray_Btn{
+   		width: 83px;
+	    color: white;
+	    font-weight: 400;
+	    text-decoration: none;
+	    text-align: center;
+	    background-color: #464646;
+	    margin-left: 8px;
+	}
+
+	.tlbl{
+		margin: 0px 4px;
+	    font-size: 19px;
+	    vertical-align: super;
+	    font-weight: 400;
+	    font-family: 'Noto Sans KR', sans-serif;
+	}
+	
+	.tlbl2{
+			font-size:17px;
+			vertical-align: super;
+			font-weight:400;
+			font-family:'Noto Sans KR', sans-serif;
+	}
+	.reg{
+		color:#00a7a7;
+		font-size :14px;
+		font-weight:bold;
+		font-family:'Noto Sans KR', sans-serif;
+		letter-spacing:1px;
+	
+	}
+	.i1{
+		width:310px;
+		
+	}
+	.i2{
+		width:309px;
+	}
+	.i3{
+		width:140px;
+	}
+	.i4{
+		width:460px;
+	}
+	.i5{
+		width:315px;
+	}
+	
+	
+	.mint_Btn{
+		font-size:19px;
+		width:130px;
+		height:45px;
+		color:#fff;
+		font-weight:400;
+		text-decoration: none;
+		text-align : center;
+		background-color: rgb(0,176,176);	
+		box-shadow: 3px 3px 5px 3px rgb(230,230,230);	
+		border:none;
+		border-radius: 10px;
+	}
+	.mint_Btn:hover{
+		color : white;
+		border-radius: 10px;
+		background-color: rgb(0 199 199);
+		border:2px solid #00B0B0;
+		box-shadow: 3px 3px 5px 3px rgb(230,230,230);	
+		border:none;
+	}
+	
+	.WMint_Btn{
+		font-size:19px;
+		border-radius: 10px;
+		color:rgb(0,176,176);
+		font-weight:bold;
+		text-decoration: none;
+		text-align : center;
+		background-color:#fff;
+		box-shadow: 3px 3px 5px 3px rgb(230,230,230);	
+		border:none;
+		width:130px;
+		height:45px;
+	}
+	.WMint_Btn:hover{
+		color : #00B0B0;
+		font-weight:bold;
+		background-color:#eaffff;
+		border:none;
+		border-radius: 10px;
+		box-shadow: 3px 3px 5px 3px rgb(230,230,230);	
+		border:none;
+	}	
+	
+	.red_Btn{
+		font-size:18px;
+		width:100px;
+		height:45px;
+		border-radius: 10px;
+		color:#fff;
+		border: none;
+		border-radius: 10px;
+		text-decoration: none;
+		text-align : center;
+		background-color: #FF6347;	
+		margin:15px 0 0 20px;
+		box-shadow: 3px 3px 5px 3px rgb(230,230,230);	
+		
+	}
+	
+	/*==============================registFindInfo==============================*/
+	form{
+		margin : 20px 0;
+	}
+	#hr2{
+		border:0;
+		width:60px;
+		background-color:#00B0B0;
+		height:3px;
+	}
+	.l{
+		font-size:24px;
+		color:#00B0B0;
+		font-weight:900;
+	}
+	#cntbox{
+		margin-bottom:200px;
+	}
+	.find{
+		padding-left:75px;
+		margin-top:60px;
+		width:100%;
+		text-align:left;
+	}
+	#findId, #findPwd{
+		font-size:23px;
+	}
+	#findIdForm>input, #findPwdForm>input{
+		width : 700px;
+		height : 50px;
+		line-height : 40px;
+		margin : 0 0 10px 0;
+		font-size:20px;
+		padding-left:10px;
+		box-shadow:1px 2px 5px 1px rgb(230,230,230);
+		border-radius:10x;
+		border:none;
+		
+	}
+
+	#findIdForm>input::placeholder, #findPwdForm>input::placeholder{
+		font-size:18px;
+	}
+	#t1{
+		font-size:15.5px;
+		line-height:24px;
+		margin:30px 0 50px 0;
+	}
+	.button{
+		border : #00B0B0 2px solid;
+		border-radius: 6px;
+		width : 61%;
+		height : 40px;
+		text-decoration: none;
+		text-align : center;
+		font-size : 16px;
+		padding : 0px 24px;
+		color : white;
+		background-color: #00B0B0
+	}
+	.button:hover{
+		color : #00B0B0;
+		background-color: white
+	}	
+
+
+
+	/*==============================registWelcome==============================*/
+	.registerMainDiv2 *{
+		margin : 0 auto;
+		width:1000px;
+		text-align : cente;
+		margin-bottom:200px;
+	}
+	#welcome{
+		font-size:55px;
+		font-weight:100;
+		letter-spacing:-1px;
+		margin-top:140px;
+		margin-bottom:20px;
+		text-align:center;
+	}
+	#welcomeImg{
+		width:100px;
+		height:100px;
+		margin:50px 0 30px 0;
+	}
+	.contentText{
+		width:100%;
+		height:50px;
+		letter-spacing:-1px;
+		line-height : 28px;
+		font-size:18px;
+		color:#353535;
+		text-align:left;
+		position:relative;
+		bottom:100px;
+		display:inline;
+	}
+	.mintTxt{
+		color:#00B0B0;
+	}
+	#box{
+		height : 420px;
+		background-color : #eee;
+		border-top : 3px solid #ccc;
+		border-bottom : 3px solid #ccc;
+		margin:0 auto;
+		width:1000px;
+	}
+	#box div:first-child{
+		border-bottom : 2px solid #ddd;
+		height : 280px;
+		text-align:center;
+	}
+	#welcomtBtns{
+		height:auto;
+		padding-top:20px;
+		text-align:center;
+	}
+	.btn{
+		width:25%;
+		height:60px;
+		font-size:20px;
+		margin-left:10px;
+	}
+	#gray_Btn{
+		border : #353535 2px solid;
+		background-color : #353535;
+		text-decoration: none;
+		text-align : center;
+		margin : 0 10px;
+		color: white;
+	}
+	#gray_Btn:hover{
+		color : white;
+		background-color: #565656;
+		border:0;
+	}
+	#mint_Btn{
+		text-decoration: none;
+		text-align : center;
+		margin:0 10px;
+		color : white;
+		border: 1px solid #00B0B0;
+		background-color: #00B0B0;
+	}
+	#mint_Btn:hover{
+		color : white;
+		background-color: rgb(0 199 199);
+		border:0;
+	}
+	
+	
+	.blocked_input{
+		background: #ddddec;
+	    color: #464698;	
+	}

@@ -1,0 +1,532 @@
+@charset "UTF-8";
+	body{
+		background: url(../img/img_route/bike_pattern.png);
+		font-family: 'Nanum Gothic', sans-serif;
+	}
+	
+	#mainDivTourWrite{
+				width:1440px;
+				height:2085px;
+				padding:125px 0 0 125px;
+				margin:0 auto;
+				background:#fbfbfb;		
+	}
+	
+	.infoDiv{
+		width : 100%;
+		height : 800px;
+		margin-top : 20px;
+	}
+	#tourWriteFormTitleDiv{
+							height:80px;	
+	}
+	.timeConditionDiv{
+					 	border-radius:15px;
+					 	background-color:#fff;
+					 	width:460px;
+					 	height:308px;
+					 	float:left;
+						margin-left:40px;
+						box-shadow: 2px 2px 4px 2px rgb(171 171 171);
+	}
+	.timeConditionDiv2{
+	
+					 	border-radius:15px;
+					 	background-color:#fff;
+					 	width:460px;
+					 	height:170px;
+					 	float:left;
+					 	margin-bottom:60px;
+						box-shadow: 2px 2px 4px 2px rgb(171 171 171);		
+						background:#efefef;
+	}
+	.timeConditionDiv3{
+						border-radius:15px;
+					 	background-color:#fff;
+					 	width:460px;
+					 	height:263px;
+					 	float:left;
+						box-shadow: 2px 2px 4px 2px rgb(171 171 171);	
+						background:#efefef;
+	
+	}
+	.tourWriteConditionTitle{
+								padding-top:5px;
+								text-align:center;
+								border-radius:8px;
+								width:115px;
+								height:37px;
+								font-size:18px;
+								color:#fff;
+								float:left;	
+								margin:-15px 0 0 40px;
+								letter-spacing: 3px;
+								/* box-shadow: 2px 2px 5px #232323; */
+								text-shadow: 1px 1px 2px #003042;
+								background: #348e8e;
+								/* background: linear-gradient(#8cd6d6, #00b0b0); */
+								
+	}
+	hr{
+		margin-top:15px;
+	}
+	
+	.cke_reset{
+		border-radius:5px;
+		box-shadow:2px 2px 5px #9c9c9b;
+	}
+	
+	#tourWriteFormTitleLbl{
+							font-size:22px; 
+	 						color:rgb(64,64,64);
+	 					
+	}
+	#RouteSearchDiv{
+						height:60px;
+						
+						
+	}
+	input:focus{outline:none;}
+	select:focus{outline:none;}
+	
+	#RouteSearchDiv input{
+							float:left;	
+	}
+	#RouteSearchDiv input[type=text]{
+										width:500px;
+										padding-left:10px;
+										border:1px solid rgb(221,221,221);
+										border-radius:10px;
+										height:45px;
+										letter-spacing:2px;
+										background-color:rgb(221,221,221);
+										font-size:18px;
+										font-weight:bold;
+										color:rgb(64,64,64);
+										position:relative;
+										left:40px;										
+	}
+
+	
+	#searchResultList{
+						width:500px;
+						height : auto;
+						padding:4px 0 0 10px;
+						border:1px solid rgb(221,221,221);
+						border-radius:10px;
+						background-color:rgb(221,221,221);
+						font-size:15px;
+						font-weight:bold;
+						color:rgb(64,64,64);
+						box-shadow: 3px 3px 5px 3px rgb(230,230,230);
+						position : absolute;
+						opacity: 0.7;
+						display:none;
+						z-index : 50;
+	}
+	
+	#searchResultList a:link, #searchResultList a:visited, #searchResultList a:hover{
+		text-decoration:none;
+		color:rgb(64,64,64);
+	}
+	#searchResultList a:hover{
+		color:#00b0b0;
+	}
+	#searchResultList>ul>li{
+		font-size:16.5px;
+		float:left;
+		margin-bottom : 5px;
+	}
+	
+	#searchResultList>ul>li:nth-of-type(3n+1){
+		width : 15%;
+		text-align : center;
+	}
+	
+	#searchResultList>ul>li:nth-of-type(3n+2){
+		width : 60%;
+		padding : 0 2.5%;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;		
+	}
+	
+	#searchResultList>ul>li:nth-of-type(3n+3){
+		width : 20%;
+		text-align : center;
+	}
+	
+	.routeResultDiv{
+	 	border-radius:15px;
+	 	background-color:#fff;
+	 	width:600px;
+	 	height:900px;
+		box-shadow: 2px 2px 4px 2px rgb(171 171 171);	
+	}
+	.routeResultDiv2{
+	 	width:600px;
+	 	height:800px;
+	 	margin : 40px auto 0;
+	
+	}
+	
+	#routeResultDiv{
+						width:700px;
+						height:861px;
+						float:left;	
+	}
+	
+	#routeTitle {
+		height: 46px;
+		width : 480px;
+		white-space:nowrap;
+		overflow:hidden;
+		font-size:24px;
+		text-overflow:ellipsis;
+		margin:12px 0 12px 27px;
+		padding:0 13px;
+		line-height : 46px;
+		text-align: center;
+	}
+	#routeTitle a{
+		text-decoration:none;
+		font-family: 'Nanum Gothic', sans-serif;
+		line-height : 46px;
+	}
+	#routeMap{
+		width : 610px; 
+		height : 500px;
+		margin : 0 auto;
+	}
+
+/*	#routeMap > div{
+		position:absolute;
+		left:-60px;
+	}
+	#routeMap > div > div{
+		position:absolute;
+		left:220px;
+		top:-27px;
+	}*/
+	#elevation_chart{
+		width : 616px;
+		height: 160px;
+		margin : 0 auto;
+	}
+	#conditionDiv{
+		width:415px;
+		height:345px;
+		float:left;	
+	}
+	.placeholder{
+		width : 100%;
+		height : 100%;
+		line-height : 500px;
+		font-size: 2em;
+		text-align:center;
+		font-weight:bold
+	}
+	.labelClass,.conditionBox,.labelClass2{	
+						font-size:18px;
+						letter-spacing:2px;
+						padding-top:7px;
+						text-align:right;
+						border:none;
+						border-radius:10px;
+						width:83px;
+						height:35px;
+						font-weight:bold;
+						color:black;
+						float:left;		
+			}
+	.routeTitleDiv{
+		width : 100%;
+		height : 60px;
+		line-height : 60px;
+	}
+	.conditionDivTop{
+					 	width:422px;
+						height:50px;
+						margin:14px 0 0 20px;
+						float:left;
+	}
+				
+	.conditionDivTop2{
+						width:425px;
+						height:30px;
+						margin-top:20px;
+						float:left;
+	}		
+	.conditionDivTop3{
+						width:440px;
+						height:55px;
+						margin:38px 0 4px 20px;
+						float:left;
+	}
+	.conditionDivTop4{
+					 	width:440px;
+						height:50px;
+						margin-top:27px;
+						float:left;	
+	}
+	
+	#departuredate,#arrivedate,#deadlinedate{		
+						width:180px;
+						color:rgb(123,123,123);				
+						font-size:15px;
+						letter-spacing:2px;
+						text-align:center;
+						border:none;
+						border-radius:10px;
+						height:40px;
+						font-weight:bold;
+						float:left;
+						background-color:#efefef;
+						box-shadow:2px 2px 5px #9c9b9b;					
+	}
+	
+	#place{
+						width:270px;
+						color:rgb(0 36 169);				
+						font-size:17px;
+						letter-spacing:1px;
+						text-align:center;
+						border:none;
+						border-radius:10px;
+						height:40px;
+						font-weight:bold;
+						float:left;
+						background-color:#efefef;
+						box-shadow:2px 2px 5px #9c9b9b;
+	}
+	
+
+	.conditionBox{
+					padding-top:3px;	
+					width:100px;
+					background-color:#fff;
+					color:rgb(123,123,123);
+					box-shadow:2px 2px 5px #9c9b9b;
+					
+	}	
+	#departuredate,#place,.conditionBox,#deadlinedate{
+												margin-left:20px;
+	}
+	
+	#label1{
+			margin-left:9px;
+			color:rgb(123,123,123);
+			font-weight:bold;
+			font-size:15px;
+	}
+	#arrivedate{
+			margin-left:103px;
+				
+				}
+
+		
+	#room{
+						padding-top:3px;
+						text-align:center;
+						border:none;
+						border-radius:8px;
+						width:55px;
+						height:35px;
+						background-color:#e5f7f7;
+						font-size:15px;
+						font-weight:bold;
+						color:#00b0b0;
+						float:left;
+						box-shadow:2px 2px 5px #9c9b9b;
+						
+				
+	}	
+
+	#whole,#whole2,#regageten,#regagetwenty,#regagethirty,#regageforty,#regagefiftyOver,#genderboy,#gendergirl{
+																													padding-top:5px;
+																													text-align:center;
+																												
+																													border-radius:10px;
+																													width:77px;
+																													height:35px;
+																													background-color:#fff;
+																													font-size:15px;
+																													font-weight:bold;
+																													color:rgb(123,123,123);
+																													float:left;
+																													box-shadow:2px 2px 5px #9c9b9b;
+															
+	}
+	
+	#regagethirty, #regageforty, #regagefiftyOver{
+		position:relative;
+		left:90px;	
+	}
+	
+	#regagethirty{
+		top:9px;
+	}
+	.kmLbl1{
+				position:relative;
+				color:rgb(123,123,123);
+				font-size:15px;
+				font-weight:bold;
+				top:7px;
+				left:-29px;
+				
+	
+	}
+	.wonLbl{
+				
+				position:relative;
+				color:rgb(123,123,123);
+				font-size:15px;
+				font-weight:bold;
+				top:-19px;
+				left:61px;
+	
+	
+	}
+	.kmLbl2{	
+				width:25px;
+				background-color:white;
+				position:relative;
+				color:rgb(123,123,123);
+				font-size:15px;
+				font-weight:bold;
+				left:-30px;
+				top:6px;
+				z-index:15;
+	}
+	
+	#budget{
+		position:relative;
+		left:88px;
+		margin-top:-26px;
+		width:115px;
+	}
+
+
+	#distance, #speed, #budget{
+		text-align:left;
+		padding-left:16px;
+	}
+	#distance, #speed, #budget, #tourtime{
+		font-size:15px;
+	}
+	
+	#tourtime{
+		text-align:center;
+	}
+	.tourTimeLbl{
+			
+				position:relative;
+				color:rgb(123,123,123);
+				font-size:15px;
+				font-weight:bold;
+				top:-18px;
+				left:-36px;
+	
+	
+	}	
+	#genderboy,#gendergirl{	
+							width:35px;
+							margin-left:10px;
+	}	
+	#whole,#regageten,#regagetwenty,#regagethirty,#regageforty,#regagefiftyOver{
+																						margin-left:19px;
+	}		
+	#whole2{
+		margin-left:25px;
+	}
+	input[type=checkbox]{
+						display:none;
+	}	
+	
+	.conditionDivBottom{
+						margin-left:115px;	
+							
+						
+	}	
+		
+	#writeForm{
+					margin-top:30px;
+					height:500px;
+					float:left;
+			
+	}	
+	#tourWriteTitle{
+						width:700px;
+						height:45px;
+						padding-left:20px;
+						margin-bottom:20px;
+						border-radius:10px;
+						box-shadow: 2px 2px 5px #9c9b9b;
+						border:none;
+						letter-spacing:2px;
+	}
+
+
+	#writebuttonDiv{
+					width:250px;
+					height:100px;
+					margin:0 auto;
+					padding:20px 0 20px 0;
+				
+					
+	}	
+	
+	#writebuttonDiv input{
+							position:relative;
+							padding-top:-2px;
+							text-align:center;
+							border:none;
+							border-radius:10px;
+							width:70px;
+							height:40px;
+							background-color:black;
+							font-size:15px;
+							font-weight:bold;
+							color:#fff;
+							float:left;
+							margin-left:30px;
+							box-shadow: 2px 2px 5px #9c9c9b;	
+							
+	
+	}	
+	#writebuttonDiv input:last-child{	
+										
+										background-color:#fff;
+										color:rgb(69,69,79);	
+															
+	}	
+	
+		
+	#departureTime,#departureMinutes,#deadlineTime,#arriveTime,#arriveMinutes{
+														text-align:center;
+														border:none;
+														border-radius:10px;
+														background-color:#e5f7f7;
+														font-size:15px;
+														font-weight:bold;
+														color:#00b0b0;
+														float:left; 
+														text-align-last:center;
+														letter-spacing:2px;
+														paddng-left:10px;
+														
+	}	
+		
+	#departureTime,#departureMinutes,#deadlineTime,#arriveTime{
+										width:70px;
+										height:39px;
+										margin:0 0px 0 20px;
+										padding-left:10px;
+										box-shadow:2px 2px 5px #9c9b9b;	
+	
+	}	
+	
+		
+
+		
+		

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bikemap.home.route.RouteDaoImp">
+	<insert id="insertCategory" parameterType = "com.bikemap.home.route.RouteCateVO">
+		insert into routecategory(noroutecate, catename, userid) values(a_sq.nextval, #{catename}, #{userid})
+	</insert>
+	<insert id="insertBasicCategory">
+		insert into routecategory(noroutecate, catename, userid) values(a_sq.nextval, '내 코스', #{param1})
+	</insert>
+	<select id="selectCategory" resultType="com.bikemap.home.route.RouteCateVO">
+		select noroutecate, catename from routecategory where userid = #{param1} order by noroutecate asc
+	</select>
+	<insert id="insertRoute" parameterType="com.bikemap.home.route.RouteVO">
+		insert into route(noboard, title, routepoint1, routepoint2, routepoint3, routepoint4, routepoint5, routepoint6, routepoint7,
+		geocode, polyline, mapcenter, maplevel, userid, distance, ascent, descent, region, closed, description) 
+		values(a_sq.nextval, #{title}, #{routepoint1}, #{routepoint2}, #{routepoint3,jdbcType=VARCHAR}, #{routepoint4,jdbcType=VARCHAR}, #{routepoint5,jdbcType=VARCHAR}, #{routepoint6,jdbcType=VARCHAR},
+		#{routepoint7,jdbcType=VARCHAR}, #{geocode}, #{polyline}, #{mapcenter}, #{maplevel}, #{userid}, #{distance, jdbcType=NUMERIC}, #{ascent, jdbcType=NUMERIC}, #{descent, jdbcType=NUMERIC}, #{region}, #{closed}, #{description})
+	</insert>
+	<select id="lastRouteNo" resultType="int">
+		select noboard from (select noboard from route where userid = #{param1} order by 1 desc) where rownum = 1
+	</select>
+	<insert id="insertRouteList" parameterType="com.bikemap.home.route.RouteListVO">
+		insert into routelist(userid, noroutecate, noboard) values(#{userid}, #{noroutecate}, #{noboard})
+	</insert>
+	<select id="chkRouteList" resultType = "int" parameterType="com.bikemap.home.route.RouteListVO">
+		select count(noboard) from routelist where noboard=#{noboard} and userid =#{userid}
+	</select>
+	<insert id="insertRoutePlaceList" parameterType="com.bikemap.home.route.RoutePlaceVO">
+		insert into routeplace(noboard, food1, food2, food3, food4, food5, sights1, sights2, sights3, sights4, sights5,
+		accom1, accom2, accom3, accom4, accom5, conve1, conve2, conve3, conve4, conve5) values(#{noboard},
+		#{food1, jdbcType=VARCHAR}, #{food2, jdbcType=VARCHAR}, #{food3, jdbcType=VARCHAR}, #{food4, jdbcType=VARCHAR},
+		#{food5, jdbcType=VARCHAR}, #{sights1, jdbcType=VARCHAR}, #{sights2, jdbcType=VARCHAR}, #{sights3, jdbcType=VARCHAR},
+		#{sights4, jdbcType=VARCHAR}, #{sights5, jdbcType=VARCHAR}, #{accom1, jdbcType=VARCHAR}, #{accom2, jdbcType=VARCHAR},
+		#{accom3, jdbcType=VARCHAR}, #{accom4, jdbcType=VARCHAR}, #{accom5, jdbcType=VARCHAR}, #{conve1, jdbcType=VARCHAR},
+		#{conve2, jdbcType=VARCHAR}, #{conve3, jdbcType=VARCHAR}, #{conve4, jdbcType=VARCHAR}, #{conve5, jdbcType=VARCHAR})
+	</insert>	
+	<select id="selectRoute" resultType="com.bikemap.home.route.RouteVO">
+		select noboard, title, routepoint1, routepoint2, routepoint3, routepoint4, routepoint5, routepoint6, routepoint7,
+		geocode, polyline, userid, distance, ascent, descent, region, to_char(writedate, 'YY-MM-DD HH24:MI') writedate,
+		round(rating, 1) rating, ratecnt, closed, scrap, description from route
+		where noboard = #{param1}
+	</select>
+	<select id="selectRoute2" resultType="com.bikemap.home.route.RouteVO">
+		select noboard, polyline, mapcenter, maplevel from route where noboard = #{param1}
+	</select>
+	<select id="selectRoutePlace" resultType="com.bikemap.home.route.RoutePlaceVO">
+		select noboard, food1, food2, food3, food4, food5, sights1, sights2, sights3, sights4, sights5,
+		accom1, accom2, accom3, accom4, accom5, conve1, conve2, conve3, conve4, conve5 from routeplace
+		where noboard = #{param1}
+	</select>
+	<select id="searchResultRecord" resultType="int" parameterType="com.bikemap.home.route.RoutePagingVO">
+		select count(noboard) from route where closed = 'F'
+		<if test='searchWord neq null and searchWord neq ""'>
+			and ${searchKey} like '%'||#{searchWord}||'%'	
+		</if>
+	</select>
+	<select id="selectRouteSearch" resultType="com.bikemap.home.route.RouteVO" parameterType="com.bikemap.home.route.RoutePagingVO">
+		select * from (select * from 
+		(select noboard, title, polyline, userid, region, distance, mapcenter, maplevel, nvl(rating,0) rating from route where closed = 'F'
+		<if test='searchWord neq null and searchWord neq ""'>
+			and ${searchKey} like '%'||#{searchWord}||'%'	
+		</if>
+		order by ${order} desc) where rownum <![CDATA[<=]]> (#{nowPage} * #{onePageRecord}) order by ${order} asc) 
+		where rownum <![CDATA[<=]]> #{lastPageRecordCount} order by ${order} desc
+	</select>
+	<select id="checkRateAlready" resultType="int" parameterType="com.bikemap.home.route.RouteVO">
+		select count(userid) from routerate where noboard = #{noboard} and userid = #{userid}
+	</select>
+	<update id="ratingRoute" parameterType="com.bikemap.home.route.RouteVO">
+		update route SET rating = ((rating * ratecnt)+ #{rating})/(ratecnt+1) , ratecnt = ratecnt +1  where noboard = #{noboard}
+	</update>
+	<insert id="insertRouteRateList" parameterType="com.bikemap.home.route.RouteVO">
+		insert into routerate(noboard, userid) values(#{noboard}, #{userid})
+	</insert>
+	<select id="selectRouteRating" resultType="com.bikemap.home.route.RouteVO" parameterType="com.bikemap.home.route.RouteVO">
+		select round(rating, 1) rating, ratecnt from route where noboard=#{noboard}
+	</select>
+	<select id="searchReference" resultType="com.bikemap.home.route.RouteVO">
+		select noboard, title, userid from route where title like '%'||#{param1}||'%' or userid like '%'||#{param1}||'%' or region like '%'||#{param1}||'%'
+		order by noboard desc
+	</select>
+	
+	<select id="selectMycategory" resultType="com.bikemap.home.route.RouteCateVO">
+		select a.noroutecate, catename, b.recordcnt from routecategory a
+		left join (select noroutecate, count(noboard) recordcnt from routelist where userid = #{param1} group by noroutecate) b 
+		on a.noroutecate = b.noroutecate
+		where userid = #{param1} order by noroutecate asc 	
+	</select>
+	<select id="getMyrouteCategoryRecord" resultType="int" parameterType="com.bikemap.home.route.MyRoutePagingVO">
+		select count(noboard) from routelist where userid=#{userid}
+		<if test='noroutecate != null and noroutecate != 0'>
+			and noroutecate = #{noroutecate}
+		</if>
+	</select>
+	<select id="selectMyroute" resultType="com.bikemap.home.route.RouteVO" parameterType="com.bikemap.home.route.MyRoutePagingVO">
+		select * from 
+			(select * from 
+				(select noboard, title, polyline, userid, region, distance, mapcenter, maplevel, nvl(rating,0) rating from route 
+				 where noboard in (select noboard from routelist where userid=#{userid} 
+				<if test='noroutecate != null and noroutecate != 0'>
+					and noroutecate = #{noroutecate}
+				</if>
+				 )
+		 order by ${order} desc) where rownum <![CDATA[<=]]> (#{nowPage} * #{onePageRecord}) order by ${order} asc) 
+		where rownum <![CDATA[<=]]> #{lastPageRecordCount} order by ${order} desc
+	</select>
+	<delete id="excludeList" parameterType="com.bikemap.home.route.RouteListVO">
+		delete from routelist where userid=#{userid} and noboard =#{noboard}
+	</delete>
+	<update id="transferCategory" parameterType="com.bikemap.home.route.RouteListVO">
+		update routelist set noroutecate=#{noroutecate} where noboard=#{noboard} and userid=#{userid}
+	</update>
+	<select id="chkRouteScraped" resultType="String">
+		select scrap from route where noboard= #{param1}
+	</select> 
+	<select id="selectWhoSavedRoute" resultType="String">
+		select userid from routelist where noboard=#{param1} and userid <![CDATA[<>]]> #{param2}
+	</select>
+	<update id="updateRouteClosed">
+		update route set closed ='T' where noboard=#{param1}
+		<if test='param2 != null and param2 != "admin"'>
+			and userid = #{param2}
+		</if>
+	</update>
+	<update id="updateRouteOpen">
+		update route set closed ='F' where noboard=#{param1}
+		<if test='param2 != null and param2 != "admin"'>
+			and userid = #{param2}
+		</if>
+	</update>
+	<delete id="revertRoutelist" parameterType = "com.bikemap.home.route.RouteListVO">
+		delete from routelist where userid =#{userid} and noboard = #{noboard}
+	</delete>
+	<delete id="deleteRoute">
+		delete from route where noboard = #{param1} and userid = #{param2}
+	</delete>
+	<select id="chkReference" resultType="int">
+		select nvl(b.tourRef,0) refCount from route a
+			left join (select reference, count(noboard) tourRef from tour group by reference having reference = #{param1}) b on a.noboard = b.reference
+		where noboard = #{param1}
+	</select>
+	<update id="scrapRoute">
+		update route set scrap='T' where noboard = #{param1} and scrap ='F'
+	</update>
+	<update id="releaseRoute">
+		update route set scrap='F' where noboard = #{param1} and scrap ='T'
+	</update>
+	<select id="getPrevNext" resultType="int" parameterType="com.bikemap.home.route.RoutePagingVO">
+		select idx from 
+			(select noboard, title, rownum idx from route where closed = 'F'
+				<if test='searchWord neq null and searchWord neq ""'>
+					and ${searchKey} like '%'||#{searchWord}||'%'	
+				</if>
+			order by ${order} desc) 
+		where noboard = #{noboard}
+	</select>
+	<select id="selectPrevNext" resultType="com.bikemap.home.route.RouteVO" parameterType="com.bikemap.home.route.RoutePagingVO">
+		select * from 
+			(select noboard, title, rownum idx from route where closed = 'F'
+				<if test='searchWord neq null and searchWord neq ""'>
+					and ${searchKey} like '%'||#{searchWord}||'%'	
+				</if>
+			order by ${order} desc) 
+		where idx = #{idx}
+	</select>
+	<select id="selectRecRoute" resultType="com.bikemap.home.route.RouteVO">
+		select * from 
+			(select noboard, title, polyline, userid, region, distance, mapcenter, maplevel, nvl(rating,0) rating from route where scrap = 'T'
+				order by noboard desc) 
+		where rownum <![CDATA[<=]]> 10
+	</select>
+</mapper> 

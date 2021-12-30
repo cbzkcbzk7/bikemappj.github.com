@@ -1,0 +1,355 @@
+@charset "UTF-8";
+body{margin:0; padding:0;      
+	overflow-x:hidden;
+    overflow-y:auto;}
+	ul,li{margin:0px; padding:0px;list-style-type:none;} 
+	ul{list-style-type:none;}
+	
+	#mainDivTour{
+				width:1200px;
+				height:1400px;
+				margin:0 auto;
+				padding:0;
+	}
+	
+	.searchBoardUl>li{
+		float: left;
+		height : 35px;
+		line-height : 35px;
+		margin-top : 25px;
+	}
+	.searchBoardUl>li:nth-of-type(2n+1){
+		width : 25%;
+	}
+	
+	.searchBoardUl>li:nth-of-type(2n+2){
+		width : 75%;
+		padding-left : 35px;
+	}
+	.searchBoardUl>li:nth-of-type(2n+2)>*{
+		margin-right : 25px;
+		float:left;
+	}
+	
+	.searchBoardUl>li:nth-of-type(4)>div{
+		margin-right :0px;
+	}
+	
+	.searchBoardUl>li:nth-of-type(9){
+		width : 100%;
+	}
+	.searchBoardUl>li:nth-of-type(9) div{
+		width : fit-content;
+		margin : 25px auto;
+	}
+	
+	.searchBoardUl>li:nth-of-type(9) div>input{
+		margin-right : 25px;
+	}
+	
+	.tourSearchListDiv{
+					 	border-radius:15px;
+					 	background-color:#fff;
+					 	width:1000px;
+					 	height:400px;
+					 	padding-top : 20px;
+						margin:0px auto 85px;
+						box-shadow: 3px 3px 5px 3px rgb(230,230,230);	
+	}	
+	.labelClass1, .labelClass2, .labelClass3{	
+				position:relative;
+				text-align:center;
+				border:none;
+				border-radius:10px;
+				width:70px;
+				height:35px;
+				font-size:15px;
+				font-weight:bold;
+				float:right;
+				color:white;
+				box-shadow: 3px 3px 5px 3px rgb(230,230,230);
+	}
+	
+	.labelClass1{
+		background-color:#2f5092;
+	}
+	
+	.labelClass2{
+		background-color:#63468a;
+	}
+	
+	.labelClass3{
+		background-color:#2e7586;
+	}
+	
+	.distanceLbl{
+		float:none;
+		margin-left : 40px;
+	}
+			
+	#departure,#arrive,#place{	
+				border:none;
+				text-align:center;
+				border-radius:10px;
+				width:130px;
+				height:35px;
+				background-color:#e6eeff;
+				color:#2f5092;
+				font-size:15px;
+				font-weight:bold;
+				box-shadow: 2px 2px 5px #9c9b9b;
+	}
+	.arriveTime,.departureTime{
+				position:relative;
+				text-align:center;
+				border:none;
+				border-radius:10px;
+				width:70px;
+				height:35px;
+				background-color:#e6eeff;
+				color:#2f5092;
+				font-size:15px;
+				font-weight:bold;
+				box-shadow: 2px 2px 5px #9b9c9c;
+				text-align-last:center;
+	
+	
+	}
+	.distanceGroup{
+		width : fit-content;
+		margin-right : 0;
+	}
+	.distance{
+			border:none;
+			text-align:center;
+			border-radius:10px;
+			width:130px;
+			height:35px;
+			background-color:#e6eeff;
+			color:#2f5092;
+			font-size:15px;
+			font-weight:bold;
+			box-shadow: 2px 2px 5px #9c9b9b;
+	}
+	.kmLbl{
+				position:relative;
+				color:#2f5092;
+				font-size:15px;
+				font-weight:bold;
+				left:-32px;
+				background-color:#e6eeff;
+				border-radius:5px;
+	}
+	
+	.label1{
+			color:rgb(0,176,176);
+			font-weight:bold;
+			font-size:15px;
+	}
+	
+	#whole, #genderboy, #gendergirl{
+		background-color:#e9e4fb;
+		color:#63468a;
+	}
+	
+	.ageGroup>label, #whole{
+		position:relative;
+		text-align:center;
+		border:none;
+		border-radius:10px;
+		width:70px;
+		height:35px;
+		font-size:15px;
+		font-weight:bold;
+		box-shadow: 2px 2px 5px #9c9b9b;
+	}
+	
+	.ageGroup>label{
+		background-color:rgba(0,176,176,0.2);
+		color:rgb(0,176,176);
+	}
+	
+	.genderGroup>label{
+		position:relative;
+		text-align:center;
+		border:none;
+		border-radius:10px;
+		width:40px;
+		height:35px;
+		background-color:rgba(0,176,176,0.2);
+		color:rgb(0,176,176);
+		font-size:15px;
+		font-weight:bold;
+		box-shadow: 2px 2px 5px #9c9b9b;
+	}
+	
+	input:focus{outline:none;}
+	select:focus{outline:none;}
+	input[type=checkbox]{
+						display:none;
+	}
+
+	#searchAndReset{
+					height:60px;
+					width:220px;
+					margin:0 auto;
+	}
+	#search{
+				position:relative;
+				padding-top:3px;
+				text-align:center;
+				border:1px solid black;
+				border-radius:10px;
+				width:70px;
+				height:40px;
+				background-color:black;
+				font-size:15px;
+				font-weight:bold;
+				color:#fff;
+				float:left;
+				box-shadow: 3px 3px 5px 3px rgb(230,230,230);
+	}
+	
+	#reset{
+				position:relative;
+				padding-top:3px;
+				text-align:center;
+				border:none;
+				border-radius:10px;
+				width:70px;
+				height:40px;
+				background-color:#fff;
+				font-size:15px;
+				font-weight:bold;
+				color:black;
+				float:left;
+				box-shadow: 3px 3px 5px 3px rgb(230,230,230);
+					
+	}
+	 #tourSearchTitleDiv{
+		width:1200px;
+		height:100px;
+		margin-bottom :45px;
+		padding-top:30px;
+	}
+	 #tourSearchTitleLbl{
+		font-size:25px; 
+		color:rgb(64,64,64);
+		margin-left : 14px;
+		letter-spacing:2px;
+	 }
+	 
+	#paging{
+		height:60px;
+		line-height : 60px;
+		margin : 10px auto 35px;		
+	} 
+	#paging ul{
+				text-align:center;
+				margin:0 auto;
+				width:300px;
+				height:26px;
+	}
+	#paging li{
+				float:left; 
+				width:25px; 
+				height:40px; 
+				font-size:18px;
+				margin-left:20px;
+				
+			
+	} 	
+	
+	#paging li a:link,#paging li a:visited{
+											text-decoration:none;
+											color:rgb(64,64,64);
+	}
+	
+	
+	
+	
+	
+	#tourBoardListDivTop{
+		width:1200px;
+		height:600px;
+	}	
+	
+	.tourImgDivClass{
+				
+				width:23%;
+				height:260px;
+				float:left;
+				margin:0 15px 35px 8px;
+				
+	}
+	.tourImgClass{
+				
+				width:285px;
+				height:280px;
+				float:left;
+				margin:0px 15px 35px 0px;
+				box-shadow: 3px 3px 5px 3px rgb(180,180,180);
+	
+	}
+	.blackWrapDiv{
+					width:285px;
+					height:280px;
+					position:absolute;
+					background-color:black;
+					opacity:60%;
+					z-index:9;
+					float:left;
+					
+					
+	} 
+	.tourBoardTitle, .tourBoardWrite,.blackWrapDiv>hr, 
+	.tourBoardDay{
+								color:#fff;
+								text-align:center;
+							
+	}
+	.tourBoardTitle{
+		
+					white-space:nowrap;
+					text-overflow:ellipsis;
+					overflow:hidden;
+	}
+	
+	.tourBoardTitle b{
+		font-size:24px;
+		padding-left:15px;
+	}
+	
+	.blackWrapDiv>p:first-child{
+								margin-top:80px;
+						
+	}
+	.blackWrapDiv>p:last-child{
+						margin-top:5px;
+					
+	}
+	.tourBoardTitle a:visited{
+								text-decoration:none;
+								color:#fff;
+	}
+	
+	
+	
+	
+	
+	
+	
+	#tourSearchTitleDiv input{
+		border:none;
+		border-radius:10px;
+		width:90px;
+		height:40px;
+		background-color:#00b0b0;
+		color:white;
+		font-size:18px;
+		float:right;
+		margin: 55px 8px 0 0;
+		box-shadow: 2px 2px 5px #9c9b9b;			
+	}
+	
+	

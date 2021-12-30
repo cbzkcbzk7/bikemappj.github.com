@@ -1,0 +1,180 @@
+	/*===================================login===================================*/
+	body{
+		font-family:'Noto Sans KR', sans-serif;
+		background-color:rgba(255,201,14,0.08);
+		
+	}
+	textarea:focus {
+		outline: none;
+	}
+	button:focus {
+		outline: none;
+	}
+	input:focus {
+		outline: none;
+	}
+	.registerMainDiv *{
+		margin : 0 auto;
+		
+	}
+
+	#bikeDiv{
+		width:1200px;
+		height:302px;
+		margin:0 auto;
+		padding:0;
+	}
+
+	#bikeDiv1{
+		width:73.5%;
+		margin-top:60px;
+		text-align:right;
+		padding-right:15px;
+		display: inline-block;
+		
+	}
+	
+	#bikeDiv1 img{
+		width:531px;
+		height:106px;
+		position:relative;
+		top:150px;
+	}
+	#bikeDiv3{
+		width:80%;
+		text-align:right;
+		padding-right:15px;
+		display: inline-block;
+		
+	}
+	
+	#bikeDiv3 img{
+		width:531px;
+		height:106px;
+		position:relative;
+		
+	}
+	#bikeDiv2{
+		float:right;
+		width:50%;
+		
+		margin-left:-100px;
+	}
+	
+	.contentText{
+		width:600px;
+		letter-spacing:-1px;
+		line-height:32px;
+		margin:0 auto;
+		margin-bottom:30px;
+		color:#353535;
+		font-size:15px;
+	}
+	.contentText:last-child{
+		font-size:17px;
+	}
+	
+	#loginDiv2{
+		width:1000px;
+		margin:0 auto;
+		height : 215px;
+		border-radius:10px;
+	
+	
+	}
+	#useridDiv{
+		margin:0 auto;
+		padding:60px 0 0 195px;
+	}
+	#userPwdDiv{
+		position:absolute;
+		margin:0 auto;
+		padding:20px 0 0 195px;
+	}
+	
+	#useridDiv input, #userPwdDiv input{
+		color:#747474;
+		width:300px;
+		height:40px;
+		padding-left:10px;
+		border-radius:5px;
+		border:0;
+		box-shadow: 3px 3px 5px 3px rgb(230,230,230);
+	}
+	#useridDiv input{
+		font-size:19px;
+		margin-left:103px;
+	}
+	#userPwdDiv input{
+		font-size:41px;
+		padding-bottom: 10px;
+	}
+	
+	.loginLabel{
+		font-size:19px;
+		margin-right:20px;
+		letter-spacing:2px;
+	}
+	#loginBtnDiv{
+		position:absolute;
+		padding:0;
+		margin:-30px 0 0 550px;
+		
+	}
+	.RegisterMint_Btn{
+		font-size:23px;
+		font-weight:bold;
+		border-radius: 10px;
+		text-decoration: none;
+		text-align : center;
+		padding:33px 41px;
+		margin:0 10px;
+		color : white;
+		border: 1px solid #00B0B0;
+		background-color: #00B0B0;
+		position:relative;
+		bottom:10px;
+		left:115px;
+		letter-spacing:1px;
+		box-shadow: 3px 3px 5px 3px rgb(230,230,230);	
+	
+	}
+	
+	
+	.button:hover{
+		color : #00B0B0;
+		font-weight:bold;
+		background-color: white;
+		border:none;
+		text-decoration: none;
+		border-radius: 10x;
+	}
+	#find_Info{
+		font-size:15px;
+		font-weight:bold;
+		text-align : center;
+		
+	}
+	.RegisterWhite_Btn{
+		color: #5D5D5D;
+		border:none;
+		font-weight:bold;
+		border-radius: 10px;
+		text-decoration: none;
+		text-align : center;
+		background-color: white;
+		padding:3px 6px;
+		box-shadow: 3px 3px 5px 3px rgb(230,230,230);
+	}
+	.RegisterWhite_Btn:hover{
+		color: white;
+		border:none;
+		background-color: #5D5D5D;
+		border-radius: 10px;
+		
+	}
+	#text1{
+		color:#D8D8D8;
+		padding:0 30px 0 30px;
+		font-size:20px;
+	}

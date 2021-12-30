@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 
+		Intercepter 처리를 위해서는 beans시작태그에 context, mvc가 추가
+		
+		Intercepter할 매핑주소를 기록한다.
+		
+		DispacherServlet이 알아서 접속이 이루어지면 interceptor한다.
+		
+		web.xml에 mvc-context.xml파일을 등록한다.
+		
+	 -->
+	 <mvc:interceptors>
+	 	<mvc:interceptor>
+	 		<mvc:mapping path="/insertRouteList"/>
+	 		<mvc:mapping path="/insertRoute"/>
+	 		<mvc:mapping path="/rateRoute"/>	 
+	 		
+	 		<mvc:mapping path="/insertCategory"/>
+	 		<mvc:mapping path="/mySavedRoute"/>
+	 		<mvc:mapping path="/myroute/selectMyroute"/>	 
+	 		<mvc:mapping path="/route/setCloseRoute1"/>
+	 		<mvc:mapping path="/route/setCloseRoute2"/>
+	 		<mvc:mapping path="/route/setCloseRoute3"/>	 
+	 		<mvc:mapping path="/route/setOpenRoute"/>
+	 		<mvc:mapping path="/route/deleteRoute"/>
+		
+	 		<mvc:mapping path="/applyTour"/>
+	 		<mvc:mapping path="/checkCompllistIn"/>
+	 		<mvc:mapping path="/cancelTour"/>
+
+	 		<mvc:mapping path="/mytour/confirmComplist"/>
+	 		<mvc:mapping path="/mytour/revertComplist"/>
+	 		<mvc:mapping path="/mytour/absentComplist"/>
+	 		<mvc:mapping path="/mytour/completeTour"/>
+	 		<mvc:mapping path="/mytour/addHeart"/>
+	 		<mvc:mapping path="/mytour"/>
+	 		<mvc:mapping path="/tourApply"/>
+
+			<mvc:mapping path="/insertNotice"/>
+			<mvc:mapping path="/sendMsg"/>
+	 		<mvc:mapping path="/messageBox"/>
+			<mvc:mapping path="/userQandA"/>
+			<mvc:mapping path="/deleteQna"/>
+	 		<mvc:mapping path="/userQandAView"/>
+	 		<mvc:mapping path="/selectQnaList"/>
+			<mvc:mapping path="/messageView"/>
+	 		<mvc:mapping path="/deleteMsg"/>
+	 		
+	 		<mvc:mapping path="/replyWriteOk"/>
+			<mvc:mapping path="/delReply"/>
+	 		<mvc:mapping path="/updateReply"/>
+	 		
+	 		<mvc:mapping path="/setThumb"/>
+		 		
+	 		<bean class="com.bikemap.home.interceptor.LoginInterceptor"/>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/tourWriteForm"/>
+	 		<mvc:mapping path="/tourWriteFormOk"/>
+			<mvc:mapping path="/deleteTourView"/>
+	 		<mvc:mapping path="/tourViewEdit"/>
+	 		<mvc:mapping path="/tourEditFormOk"/>
+			
+		
+			<bean class="com.bikemap.home.interceptor.TourInterceptor"/>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/reviewWriteForm"/>
+			<mvc:mapping path="/reviewWriteFormOk"/>
+	 		<mvc:mapping path="/reviewEdit"/>
+		 	<mvc:mapping path="/reviewEditOk"/>
+			<mvc:mapping path="/reviewDel"/>
+		
+			<bean class="com.bikemap.home.interceptor.ReviewInterceptor"/>
+		</mvc:interceptor>
+		<mvc:interceptor>
+	 		<mvc:mapping path="/adminUser"/>
+	 		<mvc:mapping path="/adminUserAjax"/>
+	 		
+	 		<mvc:mapping path="/adminQna"/>	 
+	 		<mvc:mapping path="/adminQnaWrite"/>
+	 		<mvc:mapping path="/adminQnaAjax"/>
+	 		
+	 		<mvc:mapping path="/adminReview"/>	 
+	 		<mvc:mapping path="/adminReviewAjax"/>
+	 		
+	 		<mvc:mapping path="/adminRoute"/>
+	 		<mvc:mapping path="/adminRouteAjax"/>
+	 		<mvc:mapping path="/scrapRoute"/>	 
+ 
+	 		
+	 		<mvc:mapping path="/adminTour"/>
+	 		<mvc:mapping path="/adminTourAjax"/>	 	 
+	 		<mvc:mapping path="/scrapReview"/>
+			<mvc:mapping path="/scrapReviewAll"/>
+			<mvc:mapping path="/releaseReview"/>
+	 			 		
+	 		<bean class="com.bikemap.home.interceptor.AdminInterceptor"/>	
+	 	</mvc:interceptor>
+	 </mvc:interceptors>
+</beans>

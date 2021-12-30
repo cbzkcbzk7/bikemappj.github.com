@@ -1,0 +1,857 @@
+@charset "UTF-8";
+	hr{
+		border:0;
+		border-top: 1px solid #eee;
+	}
+	.route_hr{
+		margin: 13px 0 14px 0;
+	}
+	.route_modalhr{
+		margin: 7px 0 7px 0;
+	}
+	textarea:focus {
+		outline: none;
+	}
+	button:focus {
+  		outline: none;
+	}
+	input:focus {
+  		outline: none;
+	}
+	ul,li{
+			margin:0px; padding:0px;list-style-type:none;
+	}
+	#mainDivMap{
+		width : 100%;
+		display : flex;
+		flex-direction:row;
+		margin-top:-25px;
+		height : calc(100vh - 155px);	
+	}
+	
+	#mainDivMap>div{
+		margin:0;
+		padding:0;
+		float:left;
+		overflow:hidden;
+		min-height : inherit;
+	}
+	.grayTxt{
+		color:#353535;
+		font-weight:bold;
+		font-family:'Noto Sans KR', sans-serif;
+	}
+	#searchLbl{
+		color:#5A3601;
+		font-size:16px;
+		position:relative;
+		top:3px;
+	}
+	#listImg{
+		margin-left:21px;
+		width:18px;
+		height:18px;
+	}
+	
+	#info{
+		width:432px;
+		height:inherit;
+	}
+	#info>div{
+		float:left;
+	}
+	
+	#naviIcon{
+		width : 82px;
+		height : 100%;
+		background-color : #eee;
+	}
+	
+	#naviIcon img{
+		width : 45px;
+		margin:23px 0 0 15px;
+	}
+	#infoPannel{
+		width : 350px;
+		height : 100%;
+	}
+	#map{
+		flex : 1;
+		height : 83vh;
+	}
+	#infoPannel>input[type=radio]{
+		display:none;
+	}
+	.tab{
+		display:none;
+		border:0;
+	}
+	.tab > div{
+		font-size:16px;
+	}
+	.tab_liTag{
+		padding:0 0 5px 48px;
+	}
+	.tab_liTag input[type=text]{
+		width:275px;
+		height:40px;
+		font-size:16px;
+		border-radius:10px;
+		padding-left:10px;
+		margin:3px 0 0 -10px;
+		font-weight:bold;
+		letter-spacing:1px;
+	}
+
+	.tab_liTag input:not(.startBox, .arriveBox){
+		border:2px solid #ccc;
+		color:#3B3B3B;
+	}
+	#foodList, #sightsList, #accomodationList, #convenientList{
+		padding-top:4px;
+	}
+
+	.startBox{
+		color: #548434;
+	    background-color: #E6F2DE;
+	    border: 2px solid #548434;
+	    box-shadow: 3px 3px 5px 3px rgb(210 210 210);
+	}
+	input.startBox::-webkit-input-placeholder {
+		color: #548434;
+	}
+	.arriveBox{
+		color: #EA3E3E;
+	    background-color: #FFE5E5;
+	    border: 2px solid #EA3E3E;
+	    box-shadow: 3px 3px 5px 3px rgb(210 210 210);
+	}
+	input.arriveBox::-webkit-input-placeholder {
+		color: #EA3E3E;
+	}
+	
+	#tab1:checked~div:nth-of-type(1){
+		display:block;
+	}
+	#tab2:checked~div:nth-of-type(2){
+		display:block;
+	}
+	#tab3:checked~div:nth-of-type(3){
+		display:block;
+	}
+	#tab4:checked~div:nth-of-type(4){
+		display:block;
+	}
+   #tab5:checked~div:nth-of-type(5){
+      display:block;
+   }
+	
+	#pannel1{
+		height: 83vh;
+		overflow : auto;
+	}
+	#searchPannel{
+		position:sticky;
+		top :0;
+		background-color: white;
+		color : white;
+		z-index : 500;
+	}
+
+	#searchWord{
+	    width: 88%;
+	    height: 40px;
+	    border-radius: 10px;
+	    margin: 21px;
+	    border: none;
+	    box-shadow: 3px 2px 1px 3px rgb(224 224 224);
+	    padding-left: 10px;
+	    letter-spacing: 1px;
+	    color: black;
+	}
+	input#searchWord{
+		 background-image: url(../img/img_route/search3.png);
+		 background-repeat: no-repeat;
+		 text-indent: 16px;
+		 font-family:'Noto Sans KR', sans-serif;
+	}
+	
+	input#searchWord:focus{
+		font:none;
+		background-image:none;
+	}
+	input#searchWord:focus::-webkit-input-placeholder {
+		color: transparent;
+	}
+	
+	#chkBicycle{
+		margin-left:21px;
+	}
+	
+	<!-- 寃��깋�븳 由ъ뒪�듃 �뒪���씪 -->
+	#menu_wrap hr {
+		display: block;
+		height: 1px;
+		border: 0;
+		border-top: 2px solid #5F5F5F;
+		margin:3px 0;
+	}
+	#menu_wrap .option{
+		text-align: center;
+	}
+	#menu_wrap .option p {
+		margin:10px 0;
+	}  
+	#menu_wrap .option button {
+		margin-left:5px;
+	}
+	#placesList .item {
+		position:relative;
+		border-bottom:2px solid #eee;
+		overflow: hidden;
+		cursor: pointer;
+		min-height: 65px;
+		padding-left:30px;
+	}
+	#placesList .item span {
+		display: block;
+		margin-top:4px;
+	}
+	#placesList .item h5, #placesList .item .info {
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		font-family:'Noto Sans KR', sans-serif;
+	}
+	#placesList .item .info{
+		padding:10px 0 10px 55px;
+	}
+	#placesList .info .gray {
+		color:#2E75B6;
+	}
+	#placesList .info .jibun {
+		padding-left:26px;
+		background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;
+	}
+	#placesList .info .tel {
+		color:#C90049;
+	}
+	#placesList .item .markerbg {
+		float:left;
+		position:absolute;
+		width:36px; height:37px;
+		margin:10px 0 0 10px;
+		background:url(/home/img/img_route/marker_number_gray.png) no-repeat;
+	}
+	
+	#placesList .item .marker_1 {background-position: 0 -10px;}
+	#placesList .item .marker_2 {background-position: 0 -56px;}
+	#placesList .item .marker_3 {background-position: 0 -102px}
+	#placesList .item .marker_4 {background-position: 0 -148px;}
+	#placesList .item .marker_5 {background-position: 0 -194px;}
+	#placesList .item .marker_6 {background-position: 0 -240px;}
+	#placesList .item .marker_7 {background-position: 0 -286px;}
+	#placesList .item .marker_8 {background-position: 0 -332px;}
+	#placesList .item .marker_9 {background-position: 0 -378px;}
+	#placesList .item .marker_10 {background-position: 0 -423px;}
+	#placesList .item .marker_11 {background-position: 0 -470px;}
+	#placesList .item .marker_12 {background-position: 0 -516px;}
+	#placesList .item .marker_13 {background-position: 0 -562px;}
+	#placesList .item .marker_14 {background-position: 0 -608px;}
+	#placesList .item .marker_15 {background-position: 0 -654px;}
+	
+	#pagination {
+		margin:10px auto;
+		text-align: center;
+	}
+	#pagination a {
+		font-size:18px;
+		color:#353535;
+		display:inline-block;
+		margin-right:10px;
+		text-decoration:none;
+		letter-spacing:5px;
+	}
+	#pagination .on {
+		font-weight: bold;
+		cursor: default;
+		color:#00B0B0;
+	}
+	
+	<!-- 移댄뀒怨좊━ 寃��깋 �꺆 �뒪���씪 -->
+	#category{
+		widht : 100%;
+	}
+	#category>li{
+		width : 100%;
+		height: 40px;
+		line-height : 30px;
+		overflow:auto;
+	}
+	#category>li:nth-of-type(4){
+		height : 90px;
+	}
+	.subCategory{
+		background-color: gray;
+	}
+	
+	.food_Btn, .sights_Btn, .accomodation_Btn, .convenient_Btn{
+		float : left;
+		border-radius:10px;
+		text-decoration: none;
+		text-align : center;
+		font-weight:bold;
+		letter-spacing:1px;
+		background-color: white;
+		box-shadow: 3px 3px 5px 3px rgb(230,230,230);
+	}
+	.food_Btn{
+		background-color : #EB3807;
+		border: 0;
+		color:white;
+	}
+	.food_Btn:hover, .sights_Btn:hover, .accomodation_Btn:hover, .convenient_Btn:hover{
+		color : white;
+		font-weight:bold;	
+	}
+	.food_Btn:hover{
+		background-color: #f76f4a;
+	}
+	.sights_Btn{
+		background-color : #002060;
+		border: 0;
+		color:white;
+	}
+	.sights_Btn:hover{
+		background-color: #304e8a;
+	}
+	.accomodation_Btn{
+		background-color : #5A147A;
+		border: 0;
+		color:white;
+	}
+	.accomodation_Btn:hover{
+		background-color: #784490;
+	}
+	.convenient_Btn{
+		background-color : #2E75B6;
+		border: 0;
+		color:white;
+	}
+	.convenient_Btn:hover{
+		background-color: #6198ca;
+	}
+	
+	#routeInfo{
+		color:#002060;
+		font-size:17px;
+		font-weight:bold;
+		text-align:center;
+		padding:30px 0 5px 0;
+		margin-bottom:25px;
+		word-spacing:5px;
+		letter-spacing:1px;
+		font-family:'Noto Sans KR', sans-serif;
+	}
+	
+	
+	<!-- ���옣�븳 �옣�냼 紐⑸줉 -->
+	#pannel3{
+		width : 100%;
+		overflow: auto;
+		padding: 0;
+		margin:0;
+	}
+	#pannel3>div{
+		width : 100%;
+		height : 40px;
+		font-weight:bold;
+		line-height : 40px;
+		padding-left:15px;
+		color : white;
+		border-bottom : 1px solid white;
+	}
+	#likeImg{
+		position:relative;
+		right:4px;
+		bottom:2px;
+		width:24px;
+		height:24px;
+	}
+	#lockImg{
+		width:50px;
+		height:50px;
+		margin:160px 0 0 150px;
+	}
+	#logButtons{
+		text-align:center;
+	}
+	.mint_Btn{
+		font-weight:bold;
+		border-radius:10px;
+		text-decoration: none;
+		text-align : center;
+		padding:3px 6px;
+		margin-right: 8px;
+		color : white;
+		background-color: rgb(0,176,176);
+		border: 0;
+		box-shadow: 2px 2px 3px 2px rgb(180,180,180);
+	}
+	.mint_Btn:hover{
+		color : white;
+		background-color: #3cc1c1;
+	}
+	.WMint_Btn{
+		width:80px;
+		height:35px;
+		font-size:15px;
+		font-weight:bold;
+		border-radius: 5px;
+		text-decoration: none;
+		text-align : center;
+		padding:3px 6px;
+		color : #00B0B0;
+		border: 2px solid #00B0B0;
+		background-color: white;
+	}
+	.WMint_Btn:hover{
+		color : white;
+		font-weight:bold;
+		background-color: #00B0B0;
+		border:2px solid #00B0B0;
+	}
+	
+	#title{
+		width:295px;
+		height:38px;
+		margin:0 0 10px 8px;
+		border:none;
+    	border-radius: 10px;
+    	color:#005050;
+    	font-size:15px;
+    	font-weight:bold;
+    	font-family:'Noto Sans KR', sans-serif;
+    	padding: 0 12px;
+   		background-color: #F1F1F1;
+   		box-shadow:2px 2px 3px 2px rgb(180,180,180);
+	}
+	#routeSave{
+		padding:44px 0 0 20px;
+	}
+	#txt2{
+		font-size:10px;
+	}
+	#movingImg{
+		width:145px;
+		height:115px;
+		margin:20px 0 0 50px;
+	}
+
+	.selectBox{
+		height: 36px;
+	    font-size: 14px;
+	    font-weight: bold;
+	    color: #353535;
+	    border: 0px;
+	    border-radius: 10px;
+	    font-family: 'Noto Sans KR', sans-serif;
+	    background: url(../img/img_route/selectBox.png) no-repeat 92% 55%;
+	    -webkit-appearance: none;
+	    -moz-appearance: none;
+	    appearance: none;
+	    margin-right: 8px;
+	    padding-left: 15px;
+	    margin-bottom: 38px;
+	    border: none;
+	    box-shadow: 2px 2px 3px 2px rgb(180,180,180);
+	}
+	select:focus{
+				outline:none;
+	}
+	
+	.saveTxt{
+		color:rgb(0,176,176);
+		font-weight:bold;
+		font-size:13px;
+		padding-left:23px;
+	}
+	.saveTxt2{
+		font-size:15px;
+	}
+	
+	.gray_Btn{
+		border-radius:10px;
+		background-color : #353535;
+		text-decoration: none;
+		text-align : center;
+		font-size : 16px;
+		font-weight:bold;
+		padding : 6px 12px;
+		margin : 10px 0 0 6px;
+		color: white;
+		border:0;
+		box-shadow: 3px 3px 5px 3px rgb(230,230,230);
+	}
+	.gray_Btn:hover{
+		color : white;
+		background-color: #616060;
+	} 
+
+
+
+<!-- ==================js�뙆�씪 �뒪���씪================= -->
+
+	#info_a{
+		
+	}
+	#infoWin{
+		padding:5px;
+		font-size:12px;
+		text-align:center;
+		float:center;
+		width:152px;
+		height:auto;
+		border:6px solid #eee;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;
+	}
+	#info_a:link {
+		font-size:14px;
+		font-weight:bold;
+		text-decoration: none;
+		border:1px rgba(75,112,253,0.3) solid;
+		border-width: 0 0 4px 0;
+	}
+	#start_Btn, #via_Btn, #arrive_Btn{
+		width:105px;
+		height:30px;
+		font-size:14.5px;
+		letter-spacing:2px;
+		margin-top:5px
+	}
+	#start_Btn{
+		text-decoration: none;
+		text-align : center;
+		font-weight:bold;
+		border-radius:10px;
+		background-color : white;
+		border :none;
+		color: #0E6C15;
+		box-shadow: 2px 2px 3px 2px rgb(180,180,180);
+	}
+	#via_Btn{
+		text-decoration: none;
+		text-align : center;
+		font-weight:bold;
+		border-radius:10px;
+		background-color : white;
+		border :none;
+		color: orange;	
+		box-shadow: 2px 2px 3px 2px rgb(180,180,180);
+	}
+	#arrive_Btn{
+		text-decoration: none;
+		text-align : center;
+		font-weight:bold;
+		border-radius:10px;
+		background-color : white;
+		border :none;
+		color: #C41F04;	
+		box-shadow: 2px 2px 3px 2px rgb(180,180,180);
+	}
+	#start_Btn:hover{
+		color : white;
+		font-weight:bold;
+		background-color: #0E6C15;
+	}	
+	#via_Btn:hover{
+		color : white;
+		font-weight:bold;
+		background-color:orange;
+	}
+	#arrive_Btn:hover{
+		color : white;
+		font-weight:bold;
+		background-color: #C41F04;
+	}	
+
+	#saveDiv2{
+		position:relative;
+		z-index:33;
+		top:155px;
+		
+	}
+	.blue_Btn{
+		font-weight:bold;
+		border-radius: 10px;
+		text-decoration: none;
+		text-align : center;
+		padding:3px 6px;
+		color : white;
+		background-color:rgb(30 156 156);		
+		border:2px solid #328596;
+	}
+	.blue_Btn1{
+					font-weight:bold;
+					border-radius: 10px;
+					text-decoration: none;
+					text-align : center;
+					padding:3px 6px;
+					color : white;
+					background-color:rgb(0,176,176);		
+					border: 0;
+					width:80px;
+					height:42px;
+					box-shadow: 3px 3px 5px 3px rgb(230,230,230);
+	
+	}
+	.blue_Btn1:hover{
+		color : white;
+		background-color: #00B0B0;
+	}
+	.blue_Btn:hover{
+		color : white;
+		background-color: #00B0B0;
+	}
+	#saveBtn{
+		width:222px;
+		height:53px;
+		border-radius:10px;
+		margin:0 18px 0 9px;
+		font-size:17px;
+		font-family:'Noto Sans KR', sans-serif;
+	}
+
+	#saveDiv3{
+		position:absolute;
+	 	z-index:32!important;
+	}
+	#description{
+		width:295px;
+		height:127px;
+		margin-left:8px;
+		padding:10px;
+		border-radius:5px;
+		border:none;
+		font-size:18px;
+		font-weight:bold;
+		box-shadow:2px 2px 3px 2px rgb(180,180,180);
+		font-family:'Noto Sans KR', sans-serif;
+	}
+	textarea#description::placeholder {
+		color:gray;
+		font-size:16px;
+		font-weight:400;
+		font-family:'Noto Sans KR', sans-serif;
+	}
+	
+	#saveDiv1{
+		position:relative;
+		z-index:30!important;
+		left:172px;
+		top:34px;
+	}
+	#saveDiv1 img{
+		width:155px;
+		height:125px;
+		margin-top:40px;
+		position:absolute;
+		left:33px;
+	}	
+	
+	#category > li {
+		padding:0px 20px 0 15px;
+	}
+	#category > li > button{
+		width:26%;
+		height:34px;
+		font-size:13px;
+		margin:5px 5px 0px 15px;
+	}
+	
+	.categoryDiv1{
+		width:150px;
+		padding-left:30px;	
+	}
+	.categoryDiv2{
+		width:150px;
+		padding-left:23px;	
+	}
+	
+	#elevation_chart{
+		width:270px;
+		height:115px;
+		margin:20px 10px 0 34px;
+		position:relative;
+		z-index:30;
+	}
+	#chart_Back{
+		width:278px;
+		height:125px;
+		background-color:#eee;
+		position:relative;
+		bottom:120px;
+		left:30px;
+		z-index:20;
+	}
+	
+	.food_Btn2, .sights_Btn2{
+		right:20px;	
+	}
+	 .accomodation_Btn2, .convenient_Btn2{
+		right:12px;	 
+	 }
+	.food_Btn2, .sights_Btn2, .accomodation_Btn2, .convenient_Btn2{
+		width:115px;
+		height:30px;
+		font-size:16px;
+		float : left;
+		border-radius:10px;
+		text-decoration: none;
+		text-align : center;
+		font-weight:bold;
+		position:relative;
+		background-color: white;
+		box-shadow: 3px 3px 5px 3px rgb(230,230,230);
+	}
+	.food_Btn2{
+		background-color : #EB3807;
+		border: 0;
+		color:white;
+	}
+	.food_Btn2:hover, .sights_Btn2:hover, .accomodation_Btn2:hover, .convenient_Btn2:hover{
+		font-weight:bold;
+		background-color: white;
+	}
+	.food_Btn2:hover{
+		background-color: #f76f4a;
+	}
+	.sights_Btn2{
+		background-color : #002060;
+		border: 0;
+		color:white;
+	}
+	.sights_Btn2:hover{
+		background-color: #304e8a;
+	}
+	.accomodation_Btn2{
+		background-color : #5A147A;
+		border: 0;
+		color:white;
+	}
+	.accomodation_Btn2:hover{
+		background-color: #784490;
+	}
+	.convenient_Btn2{
+		background-color : #2E75B6;
+		border: 0;
+		color:white;
+	}
+	.convenient_Btn2:hover{
+		background-color:#6198ca;
+	}
+
+	.listDel_Btn{
+		border:0;
+		background-color:white;
+	}
+	#listDel_img{
+		width:17px;
+		height:17px;
+	}
+	
+	
+	.info_tab{
+		height:380px;
+		padding-top:45px;
+		text-align:center;
+		font-family:'Noto Sans KR', sans-serif;
+	}
+	
+	.info_tab2{
+		padding:20px;
+		text-align:center;
+		font-family:'Noto Sans KR', sans-serif;
+	}
+	
+	.info_title{
+		color:#09094c;
+		font-size:19px;
+		font-weight:bold;
+		letter-spacing:1px;
+	}
+	
+	.info_btn{
+		margin: 5px 0 20px 0;
+	    letter-spacing: 1px;
+	    width: 105px;
+	    height: 35px;
+	    border-radius: 8px;
+	    font-weight: bold;
+	}
+	.info_txt1, .info_txt2{
+		font-weight:bold;
+	}
+	
+	.info_txt1{
+		font-size:18px;
+	}
+	
+	.info_txt2{
+		font-size: 19px;
+	    margin-top: 5px;
+	    font-weight: bold;
+	    letter-spacing: -1px;
+	}
+	
+	
+	.blinking{
+		margin-right:2px;
+		-webkit-animation:blink 0.5s ease-in-out infinite alternate;
+	    animation:blink 0.5s ease-in-out infinite alternate;
+	}
+	@-webkit-keyframes blink{
+	    0% {opacity:0;}
+	    100% {opacity:1;}
+	}
+	@keyframes blink{
+	    0% {color:#fd2323;}
+	    100% {color:#fb89b3;}
+	}
+
+	
+	/* 도움말 모달창 */
+	.modal-header{
+		font-size:23px;
+		font-family:'Noto Sans KR', sans-serif;
+	}
+	
+	.modal-header > label{
+		color:#2d7373;
+	}
+	
+	.applyTourCloseBtn{
+		width:24px;
+		height:24px;
+		font-size:13px;
+		float:right;
+	}
+	
+	.modal-content{
+		width:1165px;
+		height:755px;
+	}
+	.modal-body {
+		padding-top:0;
+    	overflow: auto;
+	}
+	
+	.modal-body > img{
+		width:1116px;
+		height:657px;
+		margin:0 8px;
+		border: 1px solid #dadada;
+	    border-radius: 10px;
+	}

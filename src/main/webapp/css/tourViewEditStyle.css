@@ -1,0 +1,538 @@
+@charset "UTF-8";
+.mainDivTourView{
+				width:1200px; 
+				margin:0 auto;
+				padding:0;
+				height:2000px;			
+	}
+	#tourViewFormTitleDiv{
+							width:50%;
+							float:left;
+							height:80px;
+							margin-top:50px;	
+	}
+	.timeConditionDiv{
+					 	border-radius:15px;
+					 	background-color:#fff;
+					 	width:500px;
+					 	height:350px;
+					 	float:left;
+						margin-left:40px;
+						box-shadow: 3px 3px 5px 3px rgb(230,230,230);	
+						
+	
+	}
+	.tourViewEdit,.tourViewDelete{
+					float:left;
+					width:50%;
+					border:none;
+					background-color:transparent;
+					font-weight:bold;
+					color:rgb(156,156,156);
+				
+					
+	
+	}
+	.tourViewEditAndDeleteDiv a:hover,.tourViewEditAndDeleteDiv a:link,.tourViewEditAndDeleteDiv a:visited{
+							text-decoration:none;
+							color:rgb(156,156,156);
+	}
+	
+
+	.tourViewEditAndDeleteDiv{
+								width:45%;
+								padding-top:40px;
+								height:80px;
+								float:left;
+								padding-left:450px;
+								margin-top:50px;
+								
+								
+	}
+	.timeConditionDiv2{
+	
+					 	border-radius:15px;
+					 	background-color:#fff;
+					 	width:500px;
+					 	height:170px;
+					 	float:left;
+					 	margin-bottom:40px;
+						box-shadow: 3px 3px 5px 3px rgb(230,230,230);		
+	
+	}
+	.timeConditionDiv3{
+						border-radius:15px;
+					 	background-color:#fff;
+					 	width:500px;
+					 	height:250px;
+					 	float:left;
+					 	margin-bottom:30px;
+						box-shadow: 3px 3px 5px 3px rgb(230,230,230);	
+	
+	
+	}
+	.timeConditionDiv4{
+						border-radius:15px;
+					 	background-color:#fff;
+					 	height:250px;
+						box-shadow: 3px 3px 5px 3px rgb(230,230,230);	
+						
+	
+	
+	}
+	.tourWriteConditionTitle{
+								padding-top:5px;
+								text-align:center;
+								border:1px solid rgb(0,176,176);
+								border-radius:10px;
+								width:100px;
+								height:35px;
+								background-color:rgb(0,176,176);
+								font-size:18px;
+								font-weight:bold;
+								color:#fff;
+								float:left;
+								box-shadow: 3px 3px 5px 3px rgb(230,230,230);	
+								margin:-15px 0 0 40px;
+								
+	}
+	.conditionDivTop4{
+						width:500px;
+						float:left;
+	}
+	hr{
+		margin-top:15px;
+	}
+	#tourViewFormTitleLbl{
+							font-size:22px; 
+	 						color:rgb(64,64,64);
+	 					
+	}
+	#RouteSearchDiv{
+						height:60px;
+						
+	}
+	input:focus{outline:none;}
+	
+	#RouteSearchDiv input{
+							float:left;	
+	}
+	#RouteSearchDiv input[type=text]{
+										width:500px;
+										padding:4px 0 0 10px;
+										border:1px solid rgb(221,221,221);
+										border-radius:8px;
+										height:35px;
+										background-color:rgb(221,221,221);
+										font-size:15px;
+										font-weight:bold;
+										color:rgb(64,64,64);
+										box-shadow: 3px 3px 5px 3px rgb(230,230,230);		
+																	
+	}
+
+	#routeResultDiv{
+						width:600px;
+
+						height:840px;
+						float:left;	
+	
+	}
+	#conditionDiv{
+					width:800px;
+					height:360px;
+					float:left;
+					
+	}
+	.labelClass,#departure,#arrive,.conditionBox,.labelClass2,#deadline,#place,.labelUseridClass{	
+																				
+																				padding-top:6px;
+																				text-align:center;
+																				border:none;
+																				border-radius:10px;
+																				width:70px;
+																				height:35px;
+																				background-color:rgb(64,64,64);
+																				font-size:15px;
+																				font-weight:bold;
+																				color:#fff;
+																				float:left;
+																				box-shadow: 3px 3px 5px 3px rgb(230,230,230);		
+			}
+			
+			
+	.conditionDivTop{
+					 	width:450px;
+						height:50px;
+						margin:25px 0 0 45px;
+						float:left;
+				}
+				
+	.conditionDivTop2{
+						width:450px;
+						height:30px;
+						margin:25px 0 0 45px;
+						float:left;
+	
+	
+	}		
+	.conditionDivTop3{
+						width:450px;
+						height:55px;
+						margin:40px 0 0 45px;
+						float:left;
+						
+	
+	}	
+
+				
+	#departure,#arrive,#deadline,#place{	
+										padding-top:3px;	
+											width:150px;
+											background-color:#fff;
+											color:rgb(123,123,123);
+		}
+
+	.conditionBox{
+					padding-top:3px;	
+					width:100px;
+					background-color:#fff;
+					color:rgb(123,123,123);
+					
+					
+	}	
+	#departure,#place,.conditionBox,#deadline,#room,.useridBox{
+														margin-left:20px;
+	}
+	
+	#label1{
+			margin-left:9px;
+			color:rgb(123,123,123);
+			font-weight:bold;
+			font-size:15px;
+	}
+	#arrive{
+				margin-left:92px;
+				
+				}
+
+		
+	#room,.useridBox{
+					padding-top:3px;
+					text-align:center;
+					border:none;
+					border-radius:8px;
+					width:55px;
+					height:35px;
+					background-color:#fff;
+					font-size:15px;
+					font-weight:bold;
+					color:rgb(123,123,123);
+					float:left;
+					box-shadow: 3px 3px 5px 3px rgb(230,230,230);
+				
+	}	
+	.useridBox{
+					width:100px;
+					
+	}
+	.useridBox,.labelUseridClass{
+							
+	
+	}
+	#whole,#whole2,#regageten,#regagetwenty,#regagethirty,#regageforty,#regagefiftyOver,#genderboy,#gendergirl{
+																													padding-top:5px;
+																													text-align:center;
+																												
+																													border-radius:10px;
+																													width:70px;
+																													height:35px;
+																													background-color:#fff;
+																													font-size:15px;
+																													font-weight:bold;
+																													color:rgb(123,123,123);
+																													float:left;
+																													box-shadow: 3px 3px 5px 3px rgb(230,230,230);
+	
+	}
+	
+	.kmLbl1{
+				position:relative;
+				color:rgb(123,123,123);
+				font-size:15px;
+				font-weight:bold;
+				top:7px;
+				left:-32px;
+				
+	
+	}
+	.wonLbl{
+				
+				position:relative;
+				color:rgb(123,123,123);
+				font-size:15px;
+				font-weight:bold;
+				top:-18px;
+				left:-23px;
+	
+	
+	}
+	.kmLbl2{
+				position:relative;
+				color:rgb(123,123,123);
+				font-size:15px;
+				font-weight:bold;
+				left:-30px;
+				top:6px;
+			
+	
+	}
+
+	.tourTimeLbl{
+			
+				position:relative;
+				color:rgb(123,123,123);
+				font-size:15px;
+				font-weight:bold;
+				top:-18px;
+				left:-36px;
+	
+	
+	}	
+
+		
+	#genderboy,#gendergirl{	
+							width:35px;
+							margin-left:10px;
+	}	
+	#whole,#whole2,#regageten,#regagetwenty,#regagethirty,#regageforty,#regagefiftyOver{
+															margin-left:20px;
+	}		
+
+	.conditionDivBottom{
+						margin-left:115px;
+					
+						
+	}	
+	#tourWriteTitleEdit{
+						width:500px;
+						height:35px;
+						margin-bottom:20px;
+						border-radius:10px;
+						box-shadow: 3px 3px 5px 3px rgb(230,230,230);
+						border:none;
+	}
+	
+	#writeForm{
+					margin-top:30px;
+					height:500px;
+					float:left;
+			
+	}	
+	#tourWriteTitle{
+						width:500px;
+						height:35px;
+						margin-bottom:20px;
+						font-size:35px;
+					
+	}
+	#writebuttonDiv{
+					width:250px;
+					height:100px;
+					margin:0 auto;
+					padding:20px 0 20px 0;
+				
+					
+	}
+	#writebuttonDiv input{
+							position:relative;
+							padding-top:-2px;
+							text-align:center;
+							border:none;
+							border-radius:10px;
+							width:70px;
+							height:40px;
+							background-color:black;
+							font-size:15px;
+							font-weight:bold;
+							color:#fff;
+							float:left;
+							margin-left:30px;
+							box-shadow: 3px 3px 5px 3px rgb(230,230,230);	
+							
+	
+	}	
+	#writebuttonDiv input:last-child{	
+										
+										background-color:#fff;
+										color:rgb(69,69,79);	
+															
+	}	
+
+	#content{
+				width:800px;
+				height:400px;
+				float:left;
+						
+	}
+	#tourWriteFormTitleDiv{
+							height:80px;
+							margin-top:50px;	
+	}
+
+	#tourWriteFormTitleLbl{
+							font-size:22px; 
+	 						color:rgb(64,64,64);
+	 					
+	}
+	#departureTime,#departureMinutes,#deadlineTime,#arriveTime,#arriveMinutes{
+														padding-top:3px;
+														text-align:center;
+														border:none;
+														border-radius:10px;
+														width:75px;
+														height:35px;
+														background-color:#fff;
+														font-size:15px;
+														font-weight:bold;
+														color:rgb(123,123,123);
+														float:left;
+														margin:0 15px 0 10px;
+														height:26px; 
+														text-align-last:center;
+														
+	}	
+	#departureTime,#departureMinutes,#deadlineTime{
+										width:70px;
+										height:35px;
+										margin:0 0px 0 20px;
+										box-shadow: 3px 3px 5px 3px rgb(230,230,230);	
+	
+	}	
+			
+	#arriveTime,#arriveMinutes{
+									width:70px;
+									height:35px;
+									margin:0 0 0 20px;
+									box-shadow: 3px 3px 5px 3px rgb(230,230,230);	
+	}	
+		
+
+	#roomCheckDiv{
+				
+					height:40px;
+					width:1200px;
+					
+	}	
+	
+	.roomLineCheck{
+					width:500px;
+					background-color:yellow;
+					float:left;
+				
+					
+	}
+	
+	#roomCheckDiv div:first-child{
+									float:left;
+									margin-left:490px;
+									height:28px;
+									width:7px;
+									background-color:rgb(0,176,176);
+									
+	}	
+	
+	#roomCheckDiv div:last-child label{
+										font-size:20px;
+										font-weight:bold;
+										color:rgb(64,64,64);
+										margin-left:10px;
+	}		
+
+	#tourStateDiv{
+					height:150px;
+					width:700px;
+					float:right;
+					
+					
+			
+	}
+	#applyTour{
+					
+					text-align:center;
+					border:none;
+					border-radius:10px;
+					width:90px;
+					height:35px;
+					background-color:rgb(0,176,176);
+					font-size:16px;
+					font-weight:bold;
+					color:#fff;
+					float:left;
+					box-shadow: 3px 3px 5px 3px rgb(230,230,230);
+	}
+	
+	#cancelTour{
+					
+					text-align:center;
+					border:none;
+					border-radius:10px;
+					width:90px;
+					height:35px;
+					background-color:#fff;
+					font-size:16px;
+					font-weight:bold;
+					color:rgb(123,123,123);
+					float:left;
+					margin-left:15px;
+					box-shadow: 3px 3px 5px 3px rgb(230,230,230);
+					
+	}
+	input[type=checkbox]{
+						display:none;
+	}	
+	.roomCheckDivLbl{
+					width:690px;
+					height:50px;
+					float:right;
+	
+	}
+	
+	.routeResultDiv{
+	 	border-radius:15px;
+	 	background-color:#fff;
+	 	width:600px;
+	 	height:900px;
+		box-shadow: 3px 3px 5px 3px rgb(230,230,230);	
+	}
+	.routeResultDiv2{
+	 	width:600px;
+	 	height:800px;
+	 	margin-top : 40px;
+	
+	}
+	
+	#routeMap{
+		width : 500px; 
+		height : 500px;
+		margin : 0 auto;
+	}
+	
+	#elevation_chart{
+		width : 500px; height: 200px;
+		margin : 0 auto;
+	}
+
+	#routeTitle {
+		height: 35px;
+		width : 400px;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;		
+	}
+	.routeTitleDiv{
+		width : 550px;
+		height : 50px;
+	}
+	
+	

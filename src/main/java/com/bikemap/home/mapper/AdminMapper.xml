@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bikemap.home.admin.AdminDaoImp">
+	<!-- 관리자 사용자 페이지 -->
+	<select id="selectRegistAll" parameterType="com.bikemap.home.admin.AdminPagingVO" resultType="com.bikemap.home.admin.AdminRegistVO"><!-- VO하나만 합성으로 설정 -->	
+		select * from(select * from( select * from ( select to_char(a.regdate, 'YYYY.MM.DD') regdate, a.email, a.userid, a.username, a.gender, trunc((to_number(to_char(sysdate, 'YYYY'))-to_number(to_char(a.birth, 'YYYY'))+1),-1) birth, a.tourcnt, a.active, a.heart, (select to_char(s.endday,'YY-MM-DD')	
+		from suspend s  
+		<![CDATA[where s.userid = a.userid and rownum=1 and s.endday>=sysdate]]>) endday from regist a where a.userid <![CDATA[<>]]> 'admin')<include refid="search"></include> order by regdate desc )
+		<![CDATA[where rownum <= (#{nowPage} * #{onePageRecord}) order by regdate asc) 
+		where rownum <= #{lastPageRecordCount} order by regdate  desc]]>
+	</select>
+	<!-- 페이지 검색시 사용 -->
+	<sql id="search">
+		<if test="searchType != null">					
+			<if test="searchType == 'userAll'.toString()">WHERE USERID LIKE '%' || #{searchWord} || '%' OR  USERNAME LIKE '%' || #{searchWord} || '%'</if>
+			<if test="searchType == 'tourAll'.toString()">WHERE USERID LIKE '%' || #{searchWord} || '%' OR  TITLE LIKE '%' || #{searchWord} || '%' OR CONTENT LIKE '%' || #{searchWord} || '%'</if>
+			<if test="searchType == 'reviewAll'.toString()">WHERE USERID LIKE '%' || #{searchWord} || '%' OR  SUBJECT LIKE '%' || #{searchWord} || '%' OR CONTENT LIKE '%' || #{searchWord} || '%'</if>
+			<if test="searchType == 'qnaAll'.toString()">WHERE USERID LIKE '%' || #{searchWord} || '%' OR  SUBJECT LIKE '%' || #{searchWord} || '%'</if>
+			<if test="searchType == 'userid'.toString()">WHERE USERID LIKE '%' || #{searchWord} || '%' </if>
+			<if test="searchType == 'username'.toString()">WHERE USERNAME LIKE '%' || #{searchWord} || '%' </if>
+			<if test="searchType == 'content'.toString()">WHERE CONTENT LIKE '%' || #{searchWord} || '%' </if>
+			<if test="searchType == 'subject'.toString()">WHERE SUBJECT LIKE '%' || #{searchWord} || '%' </if>	
+			<if test="searchType == 'title'.toString()">WHERE TITLE LIKE '%' || #{searchWord} || '%' </if>			
+			<if test="searchType == 'routeAll'.toString()">WHERE USERID LIKE '%' || #{searchWord} || '%' OR  TITLE LIKE '%' || #{searchWord} || '%'</if>
+		</if>
+	</sql>
+	
+	<select id="searchRegistRecord" parameterType="com.bikemap.home.admin.AdminSuspendVO" resultType="int">
+		select count(userid) from (select * from regist where userid <![CDATA[<>]]> 'admin') <include refid="search"></include>
+	</select>
+	<!-- 정지 추가하기	 -->
+	<insert id="suspendInsert" parameterType="com.bikemap.home.admin.AdminSuspendVO">
+ 		insert into suspend(userid, endday, cause)
+		values(#{userid}, to_date(sysdate+#{endday}, 'YY-MM-DD'),#{cause})
+	</insert>
+	
+	<update id="suspendUpdate" parameterType="com.bikemap.home.admin.AdminSuspendVO">
+		update suspend set endday=endday+#{endday}, cause=#{cause} 
+		where rownum=1 and userid=#{userid} and endday>=sysdate
+	</update>
+	<select id = "getStopState" resultType="int"><!-- VO하나만 합성으로 설정 -->
+	 	select count(userid) from suspend where rownum=1 and userid=#{userid} and endday>=sysdate
+	</select>
+	<select id = "getEndday" parameterType="com.bikemap.home.admin.AdminSuspendVO" resultType="com.bikemap.home.admin.AdminSuspendVO"><!-- VO하나만 합성으로 설정 -->
+	 	select to_char(endday,'YY-MM-DD') enddayStr, userid from suspend where rownum=1 and userid=#{userid} and endday>=sysdate
+	</select>
+	
+	
+	<!-- 1대1 문의 게시판 -->
+	<select id="searchQnaRecord" parameterType="com.bikemap.home.admin.AdminPagingVO" resultType="int">
+			select count(noqna) from
+		<if test = 'answer neq null and answer eq "N"'>
+			 (select noqna, answer from
+		</if>
+			 qna <include refid="search"></include>
+		<if test = 'answer neq null and answer eq "N"'>
+			) where answer = 'N'
+		</if>
+	</select>
+	
+	<select id="selectQnaAll" parameterType="com.bikemap.home.admin.AdminPagingVO" resultType="com.bikemap.home.admin.AdminQnaVO">
+		select * from(select * from(	
+		<if test = 'answer neq null and answer eq "N"'>
+			select * from (
+		</if>
+			select noqna, userid, subject,  to_char(writedate,'YYYY-MM-DD') writedate, answer from qna
+		<include refid="search"></include> 		
+			order by noqna desc)
+		<if test = 'answer neq null and answer eq "N"'>
+			where answer = 'N')
+		</if>
+		<![CDATA[where rownum <= (#{nowPage} * #{onePageRecord}) order by noqna asc) 
+		where rownum <= #{lastPageRecordCount} order by noqna  desc]]>
+	</select>
+	<select id="selectQna" parameterType="int" resultType="com.bikemap.home.admin.AdminQnaVO">
+		select q.userid, q.subject, a.typename, q.content, q.answer, q.answercontent from qna q, qnaType a where q.noQnaType=a.noQnaType and noqna=#{noqna}
+	</select>
+	<update id="qnaUpdate" parameterType="com.bikemap.home.admin.AdminQnaVO">
+		update qna set answercontent=#{answercontent}, answer='Y', answerdate=sysdate where noqna=#{noqna}
+	</update>
+	
+	<!-- 루트 -->
+	<select id = "routeTotalRecord" resultType="int">
+		select count(noboard) from route
+	</select>
+	<select id = "routeAllRecord" resultType="com.bikemap.home.route.RouteVO">
+		select * from(select * from(select noboard, title, polyline, userid, region, distance, mapcenter, maplevel, TRUNC(nvl(rating,0), 1) rating, ratecnt, scrap, closed from route 
+		<include refid="search"></include> order by ${order} desc)
+		<![CDATA[where rownum <= ]]> (#{nowPage} * #{onePageRecord}) order by ${order} asc) 
+		<![CDATA[where rownum <= ]]> #{lastPageRecordCount} order by ${order}  desc
+	</select>
+	<select id="searchRouteRecord" parameterType="com.bikemap.home.route.RouteVO" resultType="int">
+		select count(noboard) from route <include refid="search"></include>
+	</select>
+	
+	<!-- 리뷰 -->
+	<select id = "reviewTotalRecord" resultType="int">
+		select count(noboard) from review
+	</select>
+	<select id = "reviewAllRecord" resultType="com.bikemap.home.review.ReviewVO">
+		select * from(select * from(
+		select noboard, subject, userid, content, reference, to_char(writedate, 'YYYY-MM-DD') writedate, hit, thumbup, thumbdown, (thumbup - thumbdown) thumb, scrap
+		from review <include refid="search"></include> order by ${order} desc)
+		<![CDATA[where rownum <=]]> (#{nowPage} * #{onePageRecord}) order by ${order} asc) 
+		<![CDATA[where rownum <=]]> #{lastPageRecordCount} order by ${order} desc
+	</select>
+	<select id="searchReviewRecord" parameterType="com.bikemap.home.review.ReviewVO" resultType="int">
+		select count(noboard) from review <include refid="search"></include>
+	</select>
+	
+	<!-- 동행모집 -->
+	<select id = "tourTotalRecord" resultType="int">
+		select count(noboard) from tour				
+	</select>
+	<select id = "tourAllRecord" resultType="com.bikemap.home.tour.TourlistVO">
+		select * from 
+			(select * from
+			<if test = 'state neq null and state eq "1"'>
+				 (select * from
+			</if>		
+				(select a.noboard, title, userid, to_char(departure, 'YY-MM-DD HH24') departure, to_char(arrive, 'YY-MM-DD HH24') arrive, to_char(deadline, 'YY-MM-DD HH24') deadline,
+					nvl(c.party, 0) party, (a.room - nvl(c.party,0)) margin, nvl(b.que,0) que, state from tour a
+					left join (select noboard, count(userid) que from complist  where state ='1'  group by noboard) b on a.noboard = b.noboard
+					left join (select noboard, count(userid) party from complist where state ='2' group by noboard) c on a.noboard = c.noboard
+				<include refid="search"></include> 
+				order by noboard desc)
+			<if test = 'state neq null and state eq "1"'>
+			 where state = '1')
+			</if>
+				
+ 			where rownum <![CDATA[<= ]]> (#{nowPage} * #{onePageRecord}) order by noboard asc)
+		where rownum <![CDATA[<= ]]> #{lastPageRecordCount} order by noboard desc 
+		
+	</select>
+	<select id="searchTourRecord" parameterType="com.bikemap.home.admin.AdminPagingVO" resultType="int">		
+		select count(noboard) from 
+		<if test = 'state neq null and state eq "1"'>
+			 (select noboard, state from
+		</if>
+			tour <include refid="search"></include>
+		<if test = 'state neq null and state eq "1"'>
+			) where state = '1'
+		</if>		
+	</select>
+</mapper> 

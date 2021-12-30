@@ -1,0 +1,363 @@
+@charset "UTF-8";
+
+  
+  #page-wrapper {
+    padding-left: 250px;
+ 
+    smin-height : calc(100vh - 170px);
+    
+  }
+  
+  #sidebar-wrapper {
+    position: sticky;
+    width: 250px;
+    height: 100%;
+    margin-left: -250px;
+  	box-shadow: 3px 3px 5px 3px rgb(230,230,230);
+	margin-top:100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  #routeCateRadio{
+  	background-color : white;
+  	min-height : calc(100vh - 170px);
+  }
+  
+  #page-content-wrapper {
+ 	
+    width: 100%;
+    padding: 20px;
+    height: 100%;
+  }
+  /* 사이드바 스타일 */
+  
+  .sidebar-nav {
+    width: 250px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .sidebar-nav li {
+    text-indent: 2em;
+    line-height: 2.8em;
+  }
+  
+  .sidebar-nav li label {
+    display: block;
+    text-decoration: none;
+    color: #999;
+    margin-right:50px;
+ 	text-align:center;
+  }
+  
+  .sidebar-nav li label:hover{
+    color: rgb(0,176,176);
+   
+  }
+  .sidebar-nav img{
+  		width:200px;
+  		margin-top:60px;
+  
+  }
+  
+  .sidebar-nav > .sidebar-brand {
+    font-size: 1.3em;
+    line-height: 3em;
+     color: #999;
+     margin-top:20px;
+  }
+ 
+  /*=================================게시판==========================*/
+  
+  .tabCategory{
+  					width:1200px;
+  					margin:0 auto;
+  
+  }
+  .titleMyRouteDiv1{
+				width : 100%;
+				height:80px;
+				margin-top:50px;  
+  }
+  .titleMyRouteDiv1 label:first-child{
+  							font-size:22px; 
+	 						color:rgb(64,64,64);
+  
+  }
+  	
+	.tabCategory{
+		display:none;
+		border:0;
+	}
+	#tab1:checked~div:nth-of-type(1){
+		display:block;
+	}
+	#tab2:checked~div:nth-of-type(2){
+		display:block;
+	}
+	#tab3:checked~div:nth-of-type(3){
+		display:block;
+	}
+	#tab4:checked~div:nth-of-type(4){
+		display:block;
+	}	
+	#tab5:checked~div:nth-of-type(5){
+		display:block;
+	}
+	#tab6:checked~div:nth-of-type(6){
+		display:block;
+	}	
+	.pagingDiv{
+
+						text-align:center;
+						height:50px;
+						line-height: 50px;
+						color:#353535;
+						font-size:20px;
+						margin : 20px auto 0
+				
+	
+	}
+	.paging{
+			width:25%;
+			margin:0 auto;
+
+			height:50px;
+										
+	}
+	.paging>ul{
+		display: inline-block;		
+		width:200px;
+		backgrond-color:pink;
+	}
+	.paging li{
+		float:left;
+		margin-left:30px;
+		font-weight:600;
+		color:#7F7F7F;		
+	}
+	
+
+
+	.paging li a:link,.paging li a:visited{
+											text-decoration:none;
+											color:rgb(64,64,64);
+	}
+	
+	.tourImgDivClass{
+				
+				width:23%;
+				height:300px;
+				float:left;
+				margin:0 15px 60px 8px;
+				
+	}
+	.blackWrapDiv{
+					width:255px;
+					height:250px;
+					position:absolute;
+					background-color:black;
+					opacity:60%;
+					z-index:9;
+					float:left;
+					
+					
+	} 
+	.tourBoardTitle, .tourBoardWrite,.blackWrapDiv>hr, 
+	.tourBoardDay,.tourBoardUserid{
+								color:#fff;
+								text-align:center;
+							
+	}
+	.blackWrapDiv>p:first-child{
+								margin-top:40px;
+								line-height:20px
+	}
+	.blackWrapDiv>p:last-child{
+						margin-top:5px;
+					
+	}
+	.tourBoardTitle{
+		
+					white-space:nowrap;
+					text-overflow:ellipsis;
+			
+	
+	
+	}
+	.tourBoardTitle a:visited{
+								text-decoration:none;
+								color:#fff;
+	}
+	.startPlaceDiv{
+					background-color:orange;
+					height:50px;
+					width:255px;
+					float:left;
+	}
+	.tourImgClass{
+				
+				width:255px;
+				height:250px;
+				float:left;
+		
+				box-shadow: 3px 3px 5px 3px rgb(180,180,180);
+	
+	}
+	
+	/* 추가한 스타일*/
+	.contentDiv{
+		float:left;
+		width:250px;
+		text-align:center;
+		margin : 0 25px 20px 25px;
+	
+	}
+	
+	.map{
+		width : 250px;
+		height : 250px;
+		margin : 0 auto;
+		box-shadow: 3px 3px 5px 3px rgb(150,150,150);
+	}
+	
+	.routeSubscript{
+		width : 250px;
+		margin : 0 auto;
+	}
+	
+	.routeSubscript>ul{
+		display:inline-block;
+	}
+	
+	.routeSubscript li{
+		float: left;
+		width : 50%;
+		height : 25px;
+		text-align:center;
+		
+		font-size:15px;
+		font-weight:bold;
+	    color : gray;
+		
+		margin-bottom : 3px;
+		font-family:'Noto Sans KR', sans-serif;
+	}
+	
+	.routeSubscript li:first-child, .routeSubscript li:nth-of-type(2){
+		width : 250px;
+		text-align:left;
+	}
+	
+	.routeSubscript li:last-child{
+		width : 250px;
+		text-align:center;
+	}
+	
+	.star-rating{width : 125px;}
+	.star-rating, .star-rating span{display : inline-block; height: 39px; overflow:hidden;  
+		background : url(/home/img/img_route/starGray.png) no-repeat;
+	}
+	
+	.star-rating span{
+	background : url(/home/img/img_route/starColored.png) no-repeat;
+	float : left;
+	line-height:0; 
+	vertical-align : top;
+	}
+	
+	.contentBlock{
+		width : 100%;
+		margin : 50px auto 20px;
+		overflow-y : auto;	
+	}
+	
+	.orderRadio{
+		float:right;
+		margin : 0 30px;
+	}
+	.orderRadio>input[type=radio]{
+		display:none;
+	}
+	.subTxt{
+		color:#AEAAAA;
+	}
+	.orderRadio>input[type=radio]:checked+label{
+		color:#353535;
+		font-size:16px;
+		font-weight:600;
+		margin-bottom:20px;
+	}
+	
+	.lBar{
+		color:#7F7F7F;
+		font-weight:400;
+	}
+	
+	.rightContext,.rightContext2{
+		display : none;
+		position : absolute;
+		width : 150px;
+		height: 100px;
+		z-index : 500;
+		border-radius:15px;
+		color:#fff;
+	 	background-color:rgba(64,64,64,1);
+	 	box-shadow: 3px 3px 5px 3px rgb(180,180,180);
+	 	text-align : center;
+	}
+	select:focus{
+				outline:none;
+	}
+	input:focus{
+				outline:none;
+	}
+
+	.rightContext li:hover{
+						border-radius : 10px;
+						background-color:black;
+	
+}
+	.rightContext>ul,.rightContext2>ul{
+		width : 100%;
+		list-style-type : none;
+		display : inline-block;
+		height : auto;
+		line-height : 30px;
+		font-family:'Noto Sans KR', sans-serif;
+		font-size : 15px;
+	}
+	
+	.rightContext>ul>li,.rightContext2>ul>li{
+		text-align: center;	
+		height : 30px;
+	}	
+	
+	.rightContext2 select{
+		border : gray 1px solid;
+		border-radius : 10px;
+		height : 30px;
+		line-height : 30px;
+		font-family:'Noto Sans KR', sans-serif;
+		font-size : 14px;
+		color:rgb(64,64,64);
+	}
+	.btn{	
+	font-weight: bold;
+    text-decoration: none;
+    border-radius:7px;
+    color: #fff;
+    float: right;
+    font-size :10px;
+    border:none;
+    background-color:black;
+	}
+	
+	.btn.move{	
+		float:none;
+		font-size : 12px;
+		
+	}

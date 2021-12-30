@@ -1,0 +1,353 @@
+@charset "UTF-8";
+	body{
+		margin:0;
+		padding:0;
+		font-family:'Noto Sans KR', sans-serif;
+    }
+
+    hr{
+		border:0;
+		width:1200px;
+		background-color:#ccc;
+		height:1px;
+	}
+	.borderHr{
+		background-color:white;
+		margin:0;
+	}
+	.wordCut{
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;
+	}
+ 	textarea:focus {
+  		outline: none;
+ 	}
+ 	button:focus {
+    	outline: none;
+ 	}
+ 	input:focus {
+    	outline: none;
+	}
+	select:focus {
+		outline: none;
+	}
+	textarea#tourReplyWrite::placeholder{
+		font-size:16px;
+		font-weight:bold;
+		color:#AAAAAA;
+	}
+	
+	
+	/*-------화면 전환 페이드 효과-------*/
+	.routeSearchDiv{
+	    animation: fadein 2s;
+	    -moz-animation: fadein 2s; /* Firefox */
+	    -webkit-animation: fadein 2s; /* Safari and Chrome */
+	    -o-animation: fadein 2s; /* Opera */
+	}
+	@keyframes fadein {
+	    from {
+	        opacity:0;
+	    }
+	    to {
+	        opacity:1;
+	    }
+	}
+	@-moz-keyframes fadein { /* Firefox */
+	    from {
+	        opacity:0;
+	    }
+	    to {
+	        opacity:1;
+	    }
+	}
+	@-webkit-keyframes fadein { /* Safari and Chrome */
+	    from {
+	        opacity:0;
+	    }
+	    to {
+	        opacity:1;
+	    }
+	}
+	@-o-keyframes fadein { /* Opera */
+	    from {
+	        opacity:0;
+	    }
+	    to {
+	        opacity: 1;
+	    }
+	}
+
+	/*----------------------------*/
+
+
+	.routeSearchDiv{
+		text-align:center;
+		width:1200px;
+		height:1700px;
+		margin:0 auto;
+		margin-top:200px;
+	}
+	.routeSearchViewDiv{
+		width:1200px;
+		height:1200px;
+		margin:0 auto;
+		
+	}
+	/*검색옵션바*/
+	.optionBar{
+		width:100%;
+		height:50px;
+		margin-bottom:100px;
+		text-align:center;
+	}
+	.regionSelect{
+		width:12%;
+		height:40px;
+		text-align:center;
+		font-size:17px;
+		font-weight:bold;
+		color:#5d5b5b;
+		border:0px;
+		border-radius:5px;
+		background-color:#eee;
+		background: url(../img/img_route/selectBox.png) no-repeat 95% 50%;
+		-webkit-appearance: none; /* 네이티브 외형 감추기 */
+    	-moz-appearance: none;
+    	appearance: none;
+    	margin-right:5px;
+    	padding-left:25px;
+    	box-shadow:3px 3px 3px #ccc;
+	}
+	.schBar{
+		width:50%;
+		height:40px;
+		border:0px;
+		border-radius:5px;
+		z-index: 1;
+		font-size:17px;
+		background-color:#F1F1F1;
+		box-shadow:3px 3px 3px #ccc;
+		
+	}
+	/*관리자 추천코스*/	
+	#hitCourse{
+		width:100%;
+		height:220px;
+	}
+
+	.hitDiv > b, .title, #mapDiv b{
+		color:#353535;
+		font-size:27px;
+		font-weight:600;
+	}
+	.hitDiv > b{
+		padding-left:10px;
+	}
+
+	.thumbnail{
+		float:left;
+		width:18.8%;
+		height:100%;
+		border-radius:5px;
+		margin-left:13px;
+	}
+	.hitIcon2{
+		width:90px;
+		height:38px;
+		margin-left:-94.5px;
+		position:absolute;
+		border-top-right-radius:5px;
+	}
+	
+	/*코스검색 컨텐츠 전체*/
+	.routeSearch{
+		width:1200px;
+		height:50px;
+		margin-left:5px;
+		text-align:left;
+		background-color:white;
+	}
+	.title{
+		margin-top:50px;
+		padding:0px 10px 10px 20px;
+	}
+	#starLbl{
+		font-size:23px;
+		font-weight:bold;
+		padding-right:6px;
+		position:relative;
+		top:4px;
+	}
+
+	.course_Info{
+		padding-left:25px;
+		font-size:17px;
+		font-weight:bold;
+		color:#004554;
+		margin-top:45px;
+		letter-spacing:2px;
+		font-family:'Noto Sans KR', sans-serif;
+	}
+	
+	.orderRadio{
+		float:right;
+		margin : 0 15px;
+	}
+	.orderRadio>input[type=radio]{
+		display:none;
+	}
+	.subTxt{
+		color:#AEAAAA;
+	}
+	.orderRadio>input[type=radio]:checked+label{
+		color:#353535;
+		font-size:16px;
+		font-weight:600;
+		margin-bottom:20px;
+	}
+
+	#lBar{
+		color:#7F7F7F;
+		font-weight:400;
+	}
+	/*댓글창*/
+	#paging{
+		position:relative;
+		width:1200px;
+		height:50px;
+		color:#353535;
+		font-size:20px;
+		margin : 0 auto;
+		text-align: center;
+	}
+	#paging ul{
+		display:inline-block;
+	}
+	#paging ul li{
+		list-style-type: none;
+		float: left;
+		margin-left:30px;
+	}
+	#paging a{
+		text-decoration:none;
+	}
+	#paging a:link, #paging a:active{
+		color:#7F7F7F;
+		font-weight:bold;
+	}
+	
+	/*컨텐츠*/
+	#content2{
+		width:1200px;
+		height:820px;
+		
+	}
+	.thumbnail2{
+		width:250px;
+		height:250px;
+		border-radius:5px;
+		
+	}
+	#contentDiv{
+		float:left;
+		margin-right:5px;
+		
+	}
+	.contentDiv{
+		float:left;
+		width:250px;
+		text-align:center;
+		margin : 0 25px 50px 25px;
+		
+	}
+	.map{
+		width : 265px;
+		height : 250px;
+		margin : 0 auto;
+		border-radius:5px;
+		box-shadow: 3px 3px 5px 3px rgb(180,180,180);
+	}
+	
+	.routeSubscript{
+		width : 250px;
+		margin : 0 auto;
+	}
+	
+	.routeSubscript>ul{
+		display:inline-block;
+	}
+	
+	.routeSubscript li{
+		float: left;
+		width : 50%;
+		height : 25px;
+		text-align:left;
+		
+		font-size:13.5px;
+	    color : #17076d;
+		
+		margin-top:2px;
+		font-family:'Noto Sans KR', sans-serif;
+	}
+	
+	.routeSubscript li:first-child, .routeSubscript li:nth-of-type(2){
+		width : 265px;
+		text-align:left;
+	}
+	
+	.routeSubscript li:last-child{
+		width : 265px;
+		margin-top:10px;
+		text-align:center;
+	}
+	
+	.star-rating{width : 125px;}
+	.star-rating, .star-rating span{display : inline-block; height: 39px; overflow:hidden;  
+		background : url(/home/img/img_route/starGray.png) no-repeat;
+	}
+		
+	.star-rating span{
+		background : url(/home/img/img_route/starColored.png) no-repeat;
+		float : left;
+		line-height:0; 
+		vertical-align : top;}
+	
+	
+	.star{
+		width:150px;
+		height:30px;
+		margin-bottom:50px;
+	}
+	
+	.mint_Btn{
+		  font-size:16px;
+		  font-weight:bold;
+		  border-radius: 5px;
+		  text-decoration: none;
+		  text-align : center;
+		  padding:3px 6px;
+		  margin:0 10px;
+		  color : white;
+		  border: 1px solid #00B0B0;
+		  background-color: #00B0B0;
+		  box-shadow:3px 3px 3px #ccc;
+	}
+#frame{
+	overflow : hidden;
+	width : 1150px;
+	height : 400px;
+	margin : 20px auto 0;
+}
+
+#poster{
+	width : 3000px;;
+	height : 400px;
+	position : relative;
+	overflow : hidden; 
+}
+
+#poster ul li{
+	float:left;
+}

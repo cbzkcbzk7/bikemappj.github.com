@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.bikemap.home.review.ReviewDaoImp">
+	
+<!--글보기 리스트 -->
+	<select id = "reviewAllRecord" parameterType="com.bikemap.home.review.ReviewPagingVO" resultType="com.bikemap.home.review.ReviewVO">
+		select * from 
+			(select * from 
+				(select noboard, subject, userid, content, reference, hit, to_char(writedate, 'YY-MM-DD HH24:MI') writedate, thumbup, thumbdown,
+				 scrap, (thumbup - thumbdown) thumb from review 
+				<if test='searchWord neq null and searchWord neq ""'> 
+ 					where ${searchType} like '%'||#{searchWord}||'%'
+				</if>
+				 order by ${order} desc)
+			 where rownum <![CDATA[ <=]]> (#{nowPage} * #{onePageRecord}) order by ${order} asc) 
+		where rownum <![CDATA[<=]]> #{lastPageRecordCount} order by ${order} desc
+	</select>
+
+<!--레코드 한 개 선택 - 글 보기 -->
+	<select id ="reviewSelect" parameterType= "int" resultType="com.bikemap.home.review.ReviewVO">
+		select noboard, subject, userid, content, reference, to_char(writedate, 'YY-MM-DD HH:MI') writedate, hit,
+		scrap, thumbup, thumbdown  from review where noboard=#{noboard}
+	</select>
+	
+<!--글쓰기 등록 -->
+	<insert id = "reviewInsert" parameterType="com.bikemap.home.review.ReviewVO">
+		insert into review(noboard, subject, userid, content, reference, ip)
+		values(a_sq.nextval, #{subject }, #{userid }, #{content }, #{reference, jdbcType=INTEGER}, #{ip})
+	</insert>
+ 
+ <!--글쓰기 수정 -->
+ 	<update id="reviewUpdate" parameterType="com.bikemap.home.review.ReviewVO">
+ 		update review set subject=#{subject}, content=#{content}
+ 			where noboard=#{noboard} and userid=#{userid } 
+ 	</update>
+ 	
+ <!--글삭제 -->
+ 	<delete id = "reviewDelete" >
+ 		delete from review where noboard=#{param1} 
+ 		<choose>
+ 			<when test='param2 neq null and param2 neq "admin"'>
+ 				and userid=#{param2}
+ 			</when>
+ 		</choose>
+ 	</delete>
+ 	
+ <!-- 조회수 -->
+	<update id="hitCount" parameterType="int">
+		update review set hit = hit+1 where noboard=#{param1}
+	</update>
+
+ 	
+ <!-- 페이징 전체 레코드 -->
+ 	<select id="searchTotalRecord" resultType="int" parameterType="com.bikemap.home.review.ReviewPagingVO">
+ 		select count(noboard) from review 
+ 		<if test='searchWord neq null and searchWord neq ""'> 
+ 			where ${searchType} like '%'||#{searchWord}||'%'
+ 		</if>
+ 	</select>
+ 	
+ <!-- 페이징 선택 레코드 -->
+ 	<select id="selectRecommendReview" resultType="com.bikemap.home.review.ReviewVO">
+ 		select noboard, subject, content, userid, thumbup from review where scrap='T' order by noboard desc
+ 	</select>
+ 	
+ <!-- 기존 추천 확인 -->
+ 	<select id="chkAlreadyReviewRate" resultType="int" parameterType="com.bikemap.home.review.ReviewVO">
+ 		select count(userid) thumb from reviewrate where noboard=#{noboard} and userid =#{userid}
+ 	</select>
+ <!-- 리뷰 평가 (추천/ 비추천) -->
+ 	<update id="setThumb" parameterType="com.bikemap.home.review.ReviewVO">
+ 		update review set 
+ 			<choose>
+ 				<when test='thumbType neq null and thumbType == 1'>
+ 					thumbup = thumbup + 1
+ 				</when>
+ 				<when test='thumbType neq null and thumbType == 2'>
+ 					thumbdown = thumbdown + 1
+ 				</when>
+ 			</choose>
+ 		where noboard = #{noboard} 		
+ 	</update>
+ 	<insert id="insertReviewrate" parameterType="com.bikemap.home.review.ReviewVO">
+ 		insert into reviewrate(noboard, userid) values(#{noboard}, #{userid})
+ 	</insert>
+ 	
+ 	<!-- 관리자 추천하기 // 1211추가 -->
+ 	<update id="scrapReview">
+		update review set scrap='T' where noboard = #{param1} and scrap ='F' OR scrap = null
+	</update>
+	<!-- 관리자 추천 해제 -->
+	<update id="releaseReview">
+		update review set scrap='F' where noboard = #{param1} and scrap ='T'
+	</update>
+	
+	<!-- 이전글 다음글 설정하기 -->
+	<select id="getPrevNext" resultType="int" parameterType="com.bikemap.home.review.ReviewPagingVO">
+		select idx from 
+			(select noboard, subject, rownum idx, (thumbup - thumbdown) thumb from review
+				<if test='searchWord neq null and searchWord neq ""'>
+					 where ${searchType} like '%'||#{searchWord}||'%'	
+				</if>
+			order by ${order} desc) 
+		where noboard = #{noboard}
+	</select>
+	<select id="selectPrevNext" resultType="com.bikemap.home.review.ReviewVO" parameterType="com.bikemap.home.review.ReviewPagingVO">
+		select * from 
+			(select noboard, subject, rownum idx, (thumbup - thumbdown) thumb  from review
+				<if test='searchWord neq null and searchWord neq ""'>
+					where ${searchType} like '%'||#{searchWord}||'%'	
+				</if>
+			order by ${order} desc) 
+		where idx = #{idx}
+	</select>
+	<select id="selectReviewThumb" resultType="com.bikemap.home.review.ReviewVO">
+		select thumbup, thumbdown from review where noboard = #{noboard}
+	</select>
+</mapper>
